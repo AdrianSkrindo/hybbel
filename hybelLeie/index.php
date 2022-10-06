@@ -58,8 +58,6 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne 
        header("Location:hjem.php");
     }
     else die;
-
-
 ?>
 
 </body>
