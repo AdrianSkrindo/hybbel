@@ -55,7 +55,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne 
 
     if(isset($_SESSION["brukernavn"]))
     {
-       header("Location:hjem.php");
+       header("Location:pages/hjem.php");
     }
     else die;
 ?>
