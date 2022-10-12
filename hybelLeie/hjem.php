@@ -77,6 +77,7 @@
 
 echo build_table($hybelArray); */
 ?>
+<div class="gridBox">
 <section class="basic-grid">
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')"><div class="cardtxt">1</div></div>
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">2</div>
@@ -90,6 +91,7 @@ echo build_table($hybelArray); */
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')">10</div>
 
 </section>   
+</div>
 
 
 
