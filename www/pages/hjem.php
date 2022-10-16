@@ -1,31 +1,33 @@
 <?php
-    session_start();
-    $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne ikke koble til database.");
+session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne ikke koble til database.");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/hjemstyle.css">
+    <link rel="stylesheet" href="../assets/CSS/hjemstyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Hjemside</title>
 </head>
+
 <body>
 
-<div class="topnav">
-  <a class="active" href="hjem.php">Hjem</a>
-  <a href="#news">Nyheter</a>
-  <a href="minSide.php">Min side</a>
-  <a class="loggUT" href="loggUT.php">Logg ut</a>
-</div>
+    <div class="topnav">
+        <a class="active" href="hjem.php">Hjem</a>
+        <a href="#news">Nyheter</a>
+        <a href="minSide.php">Min side</a>
+        <a class="loggUt" href="loggUT.php">Logg ut</a>
+    </div>
 
-<p>Du er nå logget inn på brukeren <?php echo $_SESSION['brukernavn']."."; ?></p>
+    <p>Du er nå logget inn på brukeren <?php echo $_SESSION['brukernavn'] . "."; ?></p>
 
-<?php
-/*
+    <?php
+    /*
     $sql = "SELECT sted, pris, hybel_id FROM hybel";
     $result = mysqli_query($conn, $sql);
     $hybelArray = array();
@@ -76,25 +78,132 @@
 
 
 echo build_table($hybelArray); */
-?>
+    ?>
+    <!--
 <div class="gridBox">
 <section class="basic-grid">
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')"><div class="cardtxt">1</div></div>
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">2</div>
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">3</div>
     <div class="card" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')">4</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')">5</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">6</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1575517111478-7f6afd0973db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">7</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1598228723793-52759bba239c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">8</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')">9</div>
-    <div class="card" style="background-image:url('https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60')">10</div>
-
 </section>   
 </div>
+-->
+
+    <div class="parent">
+        <div class="img">
+            <img src="../assets/img/testbilde.jpg" />
+        </div>
+        <div class="text">
+
+        </div>
+        <div class="text">
+            <ul>
+                <li>
+                    <Strong>Pris:</Strong>
+                    <span>10 000</span>
+                </li>
+                <li>
+                    <Strong>Boligtype:</Strong>
+                    <span>Kollektiv</span>
+                </li>
+                <li>
+                    <Strong>Ledig fra:</Strong>
+                    <span>1.12.2022</span>
+                </li>
+                <li>
+                    <Strong>Depositum: </Strong>
+                    <span>20 000</span>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="text">
+            <ul>
+                <li>
+                    <Strong>Inkludert strøm:</Strong>
+                    <span>Nei</span>
+                </li>
+                <li>
+                    <Strong>Inkludert internett:</Strong>
+                    <span>Ja</span>
+                </li>
+                <li>
+                    <Strong>Inkludert TV:</Strong>
+                    <span>Ja</span>
+                </li>
+                <li>
+                    <Strong>Lov med dyr:</Strong>
+                    <span>Nei</span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="text">
+            <ul><button class="button">Lei hybel</button></ul>
+        </div>
+    </div>
+
+
+    <div class="parent">
+        <div class="img">
+            <img src="../assets/img/testbilde2.jpg" />
+        </div>
+        <div class="text">
+
+        </div>
+        <div class="text">
+            <ul>
+                <li>
+                    <Strong>Pris:</Strong>
+                    <span>6 000</span>
+                </li>
+                <li>
+                    <Strong>Boligtype:</Strong>
+                    <span>Kollektiv</span>
+                </li>
+                <li>
+                    <Strong>Ledig fra:</Strong>
+                    <span>1.4.2023</span>
+                </li>
+                <li>
+                    <Strong>Depositum: </Strong>
+                    <span>18 000</span>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="text">
+            <ul>
+                <li>
+                    <Strong>Inkludert strøm:</Strong>
+                    <span>Ja</span>
+                </li>
+                <li>
+                    <Strong>Inkludert internett:</Strong>
+                    <span>Ja</span>
+                </li>
+                <li>
+                    <Strong>Inkludert TV:</Strong>
+                    <span>Nei</span>
+                </li>
+                <li>
+                    <Strong>Lov med dyr:</Strong>
+                    <span>Nei</span>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="text">
+            <ul><button class="button">Lei hybel</button></ul>
+        </div>
+    </div>
 
 
 
-    
 </body>
+
 </html>

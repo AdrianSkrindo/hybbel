@@ -1,6 +1,7 @@
 
 body {
     background-color: rgb(226, 220, 200);
+    line-height: 1.5;
 
 }
 /* Add a black background color to the top navigation */
@@ -102,3 +103,57 @@ body {
   color: black;
   
 }
+
+
+div.parent{ 
+  border:solid black 1px;
+  display:table;
+  padding:5px; 
+  width:60%;
+  margin:5px 0; /* you can change/remove margin */
+  background-color: rgb(241, 241, 241);
+  position: relative;;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 90px;
+
+}
+
+div.parent:hover {
+  background-color: rgb(226, 220, 200);
+  
+}
+
+div.text{ 
+  
+  vertical-align:middle;
+  display:table-cell;
+  text-align:justify;
+  padding: 30px;
+}
+div.parent .img{
+  vertical-align:middle;
+  display:table-cell;
+  padding-right:5px;
+  width:280px; /* you can change width */
+}
+div.img img{ 
+  width:100%;
+  height:200px; /* you can change height */
+  vertical-align:middle;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: rgb(15, 61, 62);
+}
+
