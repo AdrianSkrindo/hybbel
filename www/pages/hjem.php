@@ -21,7 +21,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne i
         <a class="active" href="hjem.php">Hjem</a>
         <a href="#news">Nyheter</a>
         <a href="minSide.php">Min side</a>
-        <a class="loggUt" href="loggUT.php">Logg ut</a>
+        <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
 
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['brukernavn'] . "."; ?></p>
