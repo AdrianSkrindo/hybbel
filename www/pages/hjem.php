@@ -19,7 +19,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne i
 
     <div class="topnav">
         <a class="active" href="hjem.php">Hjem</a>
-        <a href="#news">Nyheter</a>
+        <a href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
