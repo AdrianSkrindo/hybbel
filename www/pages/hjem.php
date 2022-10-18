@@ -202,8 +202,8 @@ echo build_table($hybelArray); */
         </div>
     </div>
 
-
-
+<?php
+include "../assets/inc/footer.php";
+?>
 </body>
-
 </html>

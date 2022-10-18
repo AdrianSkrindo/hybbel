@@ -30,8 +30,10 @@
 
 
 
-            <button class="button">Endre brukeropplysninger</button>
+            <button class="button"><a href="endreBrukeropplysninger.php">Endre brukeropplysninger</a></button>
 
-
+<?php
+include "../assets/inc/footer.php";
+?>
 </body>
 </html>

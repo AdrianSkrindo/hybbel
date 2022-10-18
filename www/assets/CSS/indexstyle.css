@@ -162,3 +162,20 @@ body {
   .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
     line-height: 34px;
   }
+
+  .footer {
+    padding: 3px;
+    background-color: rgb(15, 61, 62);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
+    
+    
+  }
+  
+  .footertxt{
+    text-align: center;
+    color: white;
+  
+  }

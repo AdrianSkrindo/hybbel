@@ -1,7 +1,7 @@
 
 body {
     background-color: rgb(226, 220, 200);
-    line-height: 1.5;
+
 
 }
 /* Add a black background color to the top navigation */
@@ -20,16 +20,16 @@ body {
     font-size: 17px;
   }
 
-  .topnav a.loggUT {
+  /*.topnav a.loggUT {
     float: right;
     color: rgb(16, 15, 15);
     text-align: center;
     padding: 14px 30px;
     text-decoration: none;
     font-size: 17px;
-  }
+  }*/
   
-  /* Change the color of links on hover */
+  
   .topnav a:hover {
     background-color: rgb(15, 61, 62);
     color: rgb(241, 241, 241);
@@ -85,8 +85,6 @@ body {
   border-radius: 4px;
   transition: all 400ms;
   overflow: hidden;
-  
-
 
   background-size: cover;
   background-position: center;
@@ -107,10 +105,10 @@ body {
 
 div.parent{ 
   border:solid black 1px;
-  display:table;
-  padding:5px; 
+  display:table; 
+  padding:5px;
   width:60%;
-  margin:5px 0; /* you can change/remove margin */
+  margin:5px 0;
   background-color: rgb(241, 241, 241);
   position: relative;;
   top: 50%;
@@ -136,11 +134,11 @@ div.parent .img{
   vertical-align:middle;
   display:table-cell;
   padding-right:5px;
-  width:280px; /* you can change width */
+  width:280px; 
 }
 div.img img{ 
   width:100%;
-  height:200px; /* you can change height */
+  height:200px; 
   vertical-align:middle;
 }
 
@@ -157,3 +155,50 @@ div.img img{
   background-color: rgb(15, 61, 62);
 }
 
+.footer {
+  padding: 3px;
+  background-color: rgb(15, 61, 62);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
+  
+  
+}
+
+.footertxt{
+  text-align: center;
+  color: white;
+
+}
+
+
+.brukerBox{
+  border:solid black 1px;
+  display:table; 
+  padding:5px;
+  width:30%;
+  margin:5px 0;
+  background-color: rgb(241, 241, 241);
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.brukerBox h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: rgb(15, 61, 62);
+  font-size: 18px;
+  
+}
+
+input[type=text], input[type=email],input[type=tlf], input[type=password] {
+  color: #404040;
+  width: fit-content;
+  border: 5px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 15px;
+}

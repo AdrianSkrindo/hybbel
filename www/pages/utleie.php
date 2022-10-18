@@ -21,5 +21,22 @@
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
     en form, men ønskelig inputs, som pusher en query opp til databasen
+    <div class="brukerBox">
+        <form method="post" action="">
+            <h2>Månedspris: <input type="text" name="pris" placeholder="<?php echo "tall" ?>" required><br></h2>
+            <h2>Depositum: <input type="text" name="depo" placeholder="<?php echo "tall" ?>" required><br></h2>
+            <h2>Boligtype: <input type="email" name="bType" placeholder="<?php echo "dropdown med alternativer?" ?>" required><br></h2>
+            <h2>Ledig fra: <input type="text" name="ledig" placeholder="<?php echo "kan styre med kalender og date datatype om vi ønsker her" ?>" required><br></h2>
+            <h2>Inkl. TV: <input type="text" name="inklTv" placeholder="<?php echo "dropdown med alternativer?" ?>" required><br></h2>
+            <h2>Inkl. Strøm: <input type="text" name="inklStr" placeholder="<?php echo "dropdown med alternativer?" ?>" required><br></h2>
+            <h2>Inkl. Internett: <input type="email" name="inklInt" placeholder="<?php echo "dropdown med alternativer?" ?>" required><br></h2>
+
+            <input type="submit" name="registrer" value="Endre brukeropplysninger" class="button">
+        </form>
+    </div>
+
+<?php
+include "../assets/inc/footer.php";
+?>
 </body>
 </html>

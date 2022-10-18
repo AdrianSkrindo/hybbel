@@ -33,7 +33,9 @@ $conn = mysqli_connect('localhost', 'root', '', '') or die ("Kunne ikke koble ti
 <div class="login-help">
   <p>Glemt passord? <a href="#">Klikk her for å tilbakestille</a>.</p>
 </div>
-
+<?php
+include "assets/inc/footer.php";
+?>
 <?php
 
     $brukernavn = " ";
@@ -59,6 +61,7 @@ $conn = mysqli_connect('localhost', 'root', '', '') or die ("Kunne ikke koble ti
     }
     else die;
 ?>
+
 
 </body>
 </html>
