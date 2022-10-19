@@ -4,13 +4,13 @@ body {
 
 
 }
-/* Add a black background color to the top navigation */
+
 .topnav {
     background-color: rgb(241, 241, 241);
     overflow: hidden;
   }
   
-  /* Style the links inside the navigation bar */
+ 
   .topnav a {
     float: left;
     color: rgb(16, 15, 15);
@@ -20,14 +20,6 @@ body {
     font-size: 17px;
   }
 
-  /*.topnav a.loggUT {
-    float: right;
-    color: rgb(16, 15, 15);
-    text-align: center;
-    padding: 14px 30px;
-    text-decoration: none;
-    font-size: 17px;
-  }*/
   
   
   .topnav a:hover {
@@ -35,124 +27,62 @@ body {
     color: rgb(241, 241, 241);
   }
   
-  /* Add a color to the active/current link */
+ 
   .topnav a.active {
     background-color: rgb(15, 61, 62);
     color: rgb(241, 241, 241);
   }
 
-  table {
-    width: 80%;
-    position: relative;
-    margin: 50px auto;
-    border: 2px solid;
-    background-color: rgb(226, 220, 200);
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
   }
 
-  td{
-    text-align: center;
-    border: 2px solid;
-  }
 
-  p{
-    text-align: right;
-  }
+.flex-container card {
+    background-color: #f1f1f1;
+    margin: 5px;
+    padding: 5px;
+    width: 350px;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 
-  .gridBox {
-    margin: 200px;
-  }
+    transition: all .2s ease-in-out; 
+}
 
-  .basic-grid {
-    display: grid;
-    gap: 2rem;
-    margin: 200px;
-
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-auto-rows: 280px;
-  }
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgb(15, 61, 62);
-  font-size: 2rem;
-  color: #fff;
-  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-  height: 100%;
+.box1 {
   width: 100%;
-  border-radius: 4px;
-  transition: all 400ms;
-  overflow: hidden;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;  
+  height: auto;
+  margin: 1px;
+  padding: 1px;
 }
 
-.card:hover {
-  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
-  transform: translate(-3px) scale(1.1);
-}
+img {
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+  }
 
-
-.cardtxt {
-  color: black;
-  
-}
-
-
-div.parent{ 
-  border:solid black 1px;
-  display:table; 
-  padding:5px;
-  width:60%;
-  margin:5px 0;
-  background-color: rgb(241, 241, 241);
-  position: relative;;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 90px;
+.tekstbox{
+    margin-left: 10px;
 
 }
 
-div.parent:hover {
-  background-color: rgb(226, 220, 200);
-  
+p{
+    font-size: larger;
+    color: rgb(15, 61, 62);
 }
 
-div.text{ 
-  
-  vertical-align:middle;
-  display:table-cell;
-  text-align:justify;
-  padding: 30px;
-}
-div.parent .img{
-  vertical-align:middle;
-  display:table-cell;
-  padding-right:5px;
-  width:280px; 
-}
-div.img img{ 
-  width:100%;
-  height:200px; 
-  vertical-align:middle;
-}
-
-.button {
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
+a {
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  background-color: rgb(15, 61, 62);
+}
+
+.flex-container card:hover {
+    transform: scale(1.05); 
 }
 
 .footer {
@@ -170,35 +100,4 @@ div.img img{
   text-align: center;
   color: white;
 
-}
-
-
-.brukerBox{
-  border:solid black 1px;
-  display:table; 
-  padding:5px;
-  width:30%;
-  margin:5px 0;
-  background-color: rgb(241, 241, 241);
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-
-.brukerBox h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: rgb(15, 61, 62);
-  font-size: 18px;
-  
-}
-
-input[type=text], input[type=email],input[type=tlf], input[type=password] {
-  color: #404040;
-  width: fit-content;
-  border: 5px solid;
-  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 15px;
 }
