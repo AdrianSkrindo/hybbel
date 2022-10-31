@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne ikke koble til database.");
-?>
 
+include "../assets/inc/standar.include.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +23,7 @@
 </div>
 
 
-    <p> Du er nå logget inn på brukeren <?php echo $_SESSION['brukernavn']."."; ?></p>
+    <p> Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn']."."; ?></p>
 
 
     <div>En mulighet for å endre brukeropplysninger, passord, brukernavn og navn osv. update query</div>

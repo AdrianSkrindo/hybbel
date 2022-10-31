@@ -1,6 +1,7 @@
 <?php
-    session_start();
-    $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne ikke koble til database.");
+
+include "../assets/inc/standar.include.php";
+
 ?>
 
 <!DOCTYPE html>

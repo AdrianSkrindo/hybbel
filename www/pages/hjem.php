@@ -1,6 +1,7 @@
 <?php
-session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne ikke koble til database.");
+
+include "../assets/inc/standar.include.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne i
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
 
-    <p>Du er nå logget inn på brukeren <?php echo $_SESSION['brukernavn'] . "."; ?></p>
+    <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
 
 
     <div class="flex-container">
@@ -70,7 +71,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne i
                 <p>select pris</p>
             </div>
         </card>
-        
+
         <card>5</card>
         <card>6</card>
     </div>
