@@ -11,7 +11,7 @@ include "../assets/inc/standar.include.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/CSS/hjemstyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Document</title>
+    <title>MinSide</title>
 </head>
 <body>
 
