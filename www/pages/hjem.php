@@ -2,6 +2,7 @@
 
 include "../assets/inc/standar.include.php";
 
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +28,7 @@ include "../assets/inc/standar.include.php";
 
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
 
-
+<!--
     <div class="flex-container">
 
         <a href="artikkel.php">
@@ -41,41 +42,43 @@ include "../assets/inc/standar.include.php";
             </card>
         </a>
 
-        <a href="artikkel.php">
-            <card>
-                <box1><img src="../assets/img/testbilde.jpg" /></box1>
-                <div class="tekstbox">
-                    <h2>Leilighet, 1 rom</h2>
-                    <p>Valhallagata 19</p>
-                    <p>8 000,-</p>
-                </div>
-            </card>
-        </a>
+    </div> -->
+    <?php
+    $sql = "SELECT navn, adresse, pris, bilde 
+        FROM hybel WHERE status =1";
 
-        <a href="artikkel.php">
-            <card>
-                <box1><img src="../assets/img/testbilde3.jpg" /></box1>
-                <div class="tekstbox">
-                    <h2>Leilighet, 2 rom</h2>
-                    <p>Gimleveien 42</p>
-                    <p>10 000,-</p>
-                </div>
-            </card>
-        </a>
+    $q = $pdo->prepare($sql);
 
-        <card>
-            <box1>for each element in hybel (database) echo img, adresse, pris, into h2, og p x2, bygger så mange nødvendige bokser vi trenger</box1>
-            <div class="tekstbox">
-                <h2>select navn/beskrivelse</h2>
-                <p>select adresse</p>
-                <p>select pris</p>
-            </div>
-        </card>
+    try {
+        $q->execute();
+    } catch (PDOException $e) {
+        echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+    }
+    //$q->debugDumpParams();
 
-        <card>5</card>
-        <card>6</card>
-    </div>
+    $hybler = $q->fetchAll(PDO::FETCH_OBJ);
+    echo '<div class="flex-container">';
+    if ($q->rowCount() > 0) {
+        foreach ($hybler as $hybel) {
+            echo '<a href="artikkel.php">';
+            echo "<card>";
+            echo '<box1> <img src="../assets/img/'.$hybel->bilde.'"</box1>';
+            echo '<div class="tekstbox">';
+            echo "<h2>" . $hybel->navn . "</h2>";
+            echo "<p>" . $hybel->adresse . "</p>";
+            echo "<p>" . $hybel->pris . ",-</p>";
+            echo "</div>";
+            echo "</card>";
+            echo "</a>";
+        }
+    } else {
+        echo "The query resulted in an empty result set.";
+    }
 
+    
+
+    echo '</div>';
+    ?>
     <?php
     include "../assets/inc/footer.php";
     ?>
