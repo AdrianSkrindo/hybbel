@@ -60,6 +60,7 @@ body {
     margin-left: 70px;
     margin-bottom: 20px;
     position: relative;
+    
   }
 
   .info {
@@ -70,6 +71,7 @@ body {
     position: relative;
     margin-right: 40px;
     font-size: x-large;
+    
   }
 
 
@@ -78,6 +80,7 @@ body {
     line-height: 2.5rem;
     display:flex;
     margin-right: 60px;
+    text-decoration: underline;
 
   }
   

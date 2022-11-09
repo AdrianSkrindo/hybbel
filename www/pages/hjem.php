@@ -28,7 +28,7 @@ include "../assets/inc/standar.include.php";
 
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
 
-<!--
+    <!--
     <div class="flex-container">
 
         <a href="artikkel.php">
@@ -44,7 +44,7 @@ include "../assets/inc/standar.include.php";
 
     </div> -->
     <?php
-    $sql = "SELECT navn, adresse, pris, bilde 
+    $sql = "SELECT hybel_id, navn, adresse, pris, bilde 
         FROM hybel WHERE status =1";
 
     $q = $pdo->prepare($sql);
@@ -59,14 +59,21 @@ include "../assets/inc/standar.include.php";
     $hybler = $q->fetchAll(PDO::FETCH_OBJ);
     echo '<div class="flex-container">';
     if ($q->rowCount() > 0) {
+
         foreach ($hybler as $hybel) {
-            echo '<a href="artikkel.php">';
+
+            //denne må ut av LOOPEN, hvis ikke blir session alltid den siste id'en
+            $_SESSION['hybel_id'] = $hybel->hybel_id;
+
+            //echo '<a href="artikkel.php">';
+            echo '<a href="artikkel.php?hybel_id="' . $_SESSION['hybel_id'] . '</a>';
             echo "<card>";
-            echo '<box1> <img src="../assets/img/'.$hybel->bilde.'"</box1>';
+            echo '<box1> <img src="../assets/img/' . $hybel->bilde . '"</box1>';
             echo '<div class="tekstbox">';
             echo "<h2>" . $hybel->navn . "</h2>";
             echo "<p>" . $hybel->adresse . "</p>";
             echo "<p>" . $hybel->pris . ",-</p>";
+            echo "<p>" . $hybel->hybel_id . "</p>";
             echo "</div>";
             echo "</card>";
             echo "</a>";
@@ -75,7 +82,7 @@ include "../assets/inc/standar.include.php";
         echo "The query resulted in an empty result set.";
     }
 
-    
+
 
     echo '</div>';
     ?>

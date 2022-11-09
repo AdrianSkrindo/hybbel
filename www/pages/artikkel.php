@@ -23,7 +23,74 @@ include "../assets/inc/standar.include.php";
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
+    <p>Du trykket på en artikkel med session id  <?php echo $_SESSION['hybel_id'] . "."; ?></p>
 
+    <?php
+
+
+
+    $sql = "SELECT * 
+        FROM hybel WHERE hybel_id='".$_SESSION['hybel_id']."'";
+
+
+    $q = $pdo->prepare($sql);
+
+    try {
+        $q->execute();
+    } catch (PDOException $e) {
+        echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+    }
+    //$q->debugDumpParams();
+
+    $hybler = $q->fetchAll(PDO::FETCH_OBJ);
+    echo '<div class="flex-container">';
+    if ($q->rowCount() > 0) {
+        foreach ($hybler as $hybel) {
+
+            echo '<box1> <img src="../assets/img/'.$hybel->bilde.'"</box1>';
+            echo '<div class="tekstbox">';
+            echo '<p>' . $hybel->navn . '</p>';
+            echo'</div>';
+            echo'<div class="overview">';
+            echo'<ul class="no-bullets">';
+            echo  '<li>Pris: <span>' . $hybel->pris . '</span></li>';
+            echo  '<li>Depositum: <span>' . $hybel->depo . '</span></li>';
+            echo    '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
+            echo    '<li>Ledig fra:<span>' . $hybel->ledigFra . '</span></li>';
+            echo  '</ul>';
+            echo '</div>';
+    
+            echo '<div class="overview">';
+            echo    '<ul class="no-bullets">';
+            echo       '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
+
+            //Printer boolean status som ja eller nei
+            echo       '<li>Inkl. strøm: <span>';
+            echo       $hybel->strom?'Ja':'Nei' . '</span></li>';
+
+            echo        '<li>Inkl. internett: <span>'; 
+            echo        $hybel->internett?'Ja':'Nei' . '</span></li>';
+
+            echo        '<li>Inkl. tv: <span>';
+            echo        $hybel->tv?'Ja':'Nei' . '</span></li>';
+
+            echo        '<li>Kjønnsdiskriminering: <span>' . $hybel->kjonn . '</span></li>';
+
+            echo    '</ul>';
+            echo '</div>';
+
+            //Knapper
+            echo '<button class="button"><a href="">Send melding til utleier</a></button>';
+            echo '<button class="button"><a href="">Lei denne leigliheten</a></button>';
+            echo '</div>';
+
+        }
+    } else {
+        echo "The query resulted in an empty result set.";
+    }
+    
+    ?>
+    <!--  HARD KODET OVERBLIKK OVER HYBELEN, GAMMELT UTKAST
     <div class="flex-container">
         <box1>
             <img src="../assets/img/testbilde2.jpg" />
@@ -65,6 +132,8 @@ include "../assets/inc/standar.include.php";
 
         <button class="button"><a href="">Send melding til utleier</a></button>
     </div>
+
+-->
 
     <?php
     include "../assets/inc/footer.php";
