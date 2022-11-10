@@ -56,17 +56,20 @@ include "../assets/inc/standar.include.php";
     }
     //$q->debugDumpParams();
 
+    $_SESSION['hybel_id'] = [];
+
+
     $hybler = $q->fetchAll(PDO::FETCH_OBJ);
     echo '<div class="flex-container">';
     if ($q->rowCount() > 0) {
 
         foreach ($hybler as $hybel) {
 
-            //denne må ut av LOOPEN, hvis ikke blir session alltid den siste id'en
-            $_SESSION['hybel_id'] = $hybel->hybel_id;
+            $_SESSION['hybel_id'][] = $hybel->hybel_id;
+
 
             //echo '<a href="artikkel.php">';
-            echo '<a href="artikkel.php?hybel_id="' . $_SESSION['hybel_id'] . '</a>';
+            echo '<a href="artikkel.php?hybel_id="' . $_SESSION['hybel_id'][$hybel->hybel_id]. '</a>';
             echo "<card>";
             echo '<box1> <img src="../assets/img/' . $hybel->bilde . '"</box1>';
             echo '<div class="tekstbox">';
@@ -85,6 +88,8 @@ include "../assets/inc/standar.include.php";
 
 
     echo '</div>';
+
+    print_r($_SESSION['hybel_id']);
     ?>
     <?php
     include "../assets/inc/footer.php";
