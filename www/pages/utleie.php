@@ -1,40 +1,61 @@
 <?php
 
 include "../assets/inc/standar.include.php";
-/*
+
+
 $sql = "INSERT INTO hybel 
-        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, kjonn, bilde) 
+        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, kjonn, bilde, status) 
         VALUES 
-        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :kjonn, :bilde)";
+        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :kjonn, :bilde, :status)";
 
 $q = $pdo->prepare($sql);
 
-$q->bindParam(':navn', $firstname, PDO::PARAM_STR);
-$q->bindParam(':pris', $lastname, PDO::PARAM_INT);
-$q->bindParam(':depo', $epost, PDO::PARAM_INT);
-$q->bindParam(':sted', $telefon, PDO::PARAM_STR);
-$q->bindParam(':btype', $fdato, PDO::PARAM_STR);
-$q->bindParam(':ledig', $firstname, PDO::PARAM_STR);
-$q->bindParam(':inklTV', $lastname, PDO::PARAM_BOOL);
-$q->bindParam(':inklStr', $epost, PDO::PARAM_BOOL);
-$q->bindParam(':inklInt', $telefon, PDO::PARAM_BOOL);
-$q->bindParam(':adresse', $fdato, PDO::PARAM_STR);
-$q->bindParam(':kjonn', $telefon, PDO::PARAM_STR);
-$q->bindParam(':bilde', $fdato, PDO::PARAM_STR);
+$q->bindParam(':navn', $navn, PDO::PARAM_STR);
+$q->bindParam(':pris', $pris, PDO::PARAM_INT);
+$q->bindParam(':depo', $depo, PDO::PARAM_INT);
+$q->bindParam(':sted', $sted, PDO::PARAM_STR);
+$q->bindParam(':btype', $btype, PDO::PARAM_STR);
+$q->bindParam(':ledig', $ledigFra, PDO::PARAM_STR);
+$q->bindParam(':inklTV', $inklTV, PDO::PARAM_BOOL);
+$q->bindParam(':inklStr', $inklStr, PDO::PARAM_BOOL);
+$q->bindParam(':inklInt', $inklInt, PDO::PARAM_BOOL);
+$q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+$q->bindParam(':kjonn', $kjonn, PDO::PARAM_STR);
+$q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
+$q->bindParam(':status', $status, PDO::PARAM_BOOL);
 
-if (isset($_REQUEST['registrer'])) {
+if (isset($_REQUEST['submit'])) {
     $navn = $_REQUEST['navn'];
     $pris = $_REQUEST['pris'];
     $depo = $_REQUEST['depo'];
     $sted = $_REQUEST['sted'];
     $btype = $_REQUEST['btype'];
-    $ledigFra = $_REQUEST['ledigFra'];
-    $inklTV = $_REQUEST['inklTV'];
-    $inklStr = $_REQUEST['inklStr'];
-    $inklInt = $_REQUEST['inklInt'];
+    $ledigFra = $_REQUEST['ledig'];
+
+    if($_REQUEST['inklTV']="ja"){
+        $inklTV = 1;
+    } else {
+        $inklTV =  0;
+    }
+
+    if($_REQUEST['inklStr']="ja"){
+        $inklStr = 1;
+    } else {
+        $inklStr =  0;
+    }
+
+    if($_REQUEST['inklInt']="ja"){
+        $inklInt = 1;
+    } else {
+        $inklInt =  0;
+    }
+
+    //$inklStr = $_REQUEST['inklStr'];
+    //$inklInt = $_REQUEST['inklInt'];
     $adresse = $_REQUEST['adresse'];
     $kjonn = $_REQUEST['kjonn'];
     $bilde = $_REQUEST['bilde'];
+    $status = 1;
 
 
     try {
@@ -51,7 +72,7 @@ if (isset($_REQUEST['registrer'])) {
         echo "Data were not inserted into database.";
     }
 }
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +82,7 @@ if (isset($_REQUEST['registrer'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/CSS/hjemstyle.css">
+    <link rel="stylesheet" href="../assets/CSS/utleiestyle.css">
     <title>utleie</title>
 </head>
 
@@ -74,9 +95,11 @@ if (isset($_REQUEST['registrer'])) {
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
     en form, men ønskelig inputs, som pusher en query opp til databasen
-    <div class="brukerBox">
+    <div class="flex-container">
+
         <form method="post" action="">
 
+            
             <h2>Overskrift: <input type="text" name="navn" placeholder="Rom i kollektiv" required></h2>
 
             <h2>Månedspris: <input type="text" name="pris" placeholder="3999" required></h2>
@@ -122,8 +145,9 @@ if (isset($_REQUEST['registrer'])) {
 
             <h2>Bilde opplastning: <input type="bilde" name="bilde" placeholder="Last opp bilde her" required></h2>
 
-            <input type="submit" name="registrer" value="Legg ut min annonse" class="button">
+            <input class="knapp" type="submit" name="submit" value="Publiser annonse"> 
         </form>
+
     </div>
 
     <?php

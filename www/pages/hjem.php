@@ -55,9 +55,10 @@ include "../assets/inc/standar.include.php";
         echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
     }
     //$q->debugDumpParams();
-
+    
+    //lager array, overskrives i loopen, om vi lagrer rett i "session"
     $artikkel_id = []; 
-    $_SESSION['hybel_id']= []; 
+    //$_SESSION['hybel_id']= []; 
 
 
     $hybler = $q->fetchAll(PDO::FETCH_OBJ);
