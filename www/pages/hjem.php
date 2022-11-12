@@ -26,7 +26,7 @@ include "../assets/inc/standar.include.php";
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
 
-    <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
+    <p>Logget inn som <?php echo $_SESSION['fnavn'] . "."; ?></p>
 
     <!--
     <div class="flex-container">

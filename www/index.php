@@ -48,13 +48,18 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne 
   }
 
 
-  $select = mysqli_query($conn, "SELECT * FROM brukere WHERE brukernavn = '$brukernavn' AND passord = '$passord'");
+  $select = mysqli_query($conn, "SELECT id, brukernavn, passord, fnavn, enavn FROM brukere WHERE brukernavn = '$brukernavn' AND passord = '$passord'");
   $row = mysqli_fetch_array($select);
 
   if (is_array($row)) {
+    
+    $_SESSION["id"] = $row['id'];
     $_SESSION["brukernavn"] = $row['brukernavn'];
     $_SESSION["passord"] = $row['passord'];
     $_SESSION["fnavn"] = $row['fnavn'];
+    $_SESSION["enavn"] =$row['enavn'];
+    
+    
   } else echo "";
 
   if (isset($_SESSION["brukernavn"])) {

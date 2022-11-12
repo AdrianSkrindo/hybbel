@@ -94,7 +94,7 @@ if (isset($_REQUEST['submit'])) {
         <a href="minSide.php">Min side</a>
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
-    en form, men ønskelig inputs, som pusher en query opp til databasen
+    <br><br>
     <div class="flex-container">
 
         <form method="post" action="">
