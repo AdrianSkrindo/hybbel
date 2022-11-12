@@ -32,19 +32,19 @@ if (isset($_REQUEST['submit'])) {
     $btype = $_REQUEST['btype'];
     $ledigFra = $_REQUEST['ledig'];
 
-    if($_REQUEST['inklTV']="ja"){
+    if ($_REQUEST['inklTV'] = "ja") {
         $inklTV = 1;
     } else {
         $inklTV =  0;
     }
 
-    if($_REQUEST['inklStr']="ja"){
+    if ($_REQUEST['inklStr'] = "ja") {
         $inklStr = 1;
     } else {
         $inklStr =  0;
     }
 
-    if($_REQUEST['inklInt']="ja"){
+    if ($_REQUEST['inklInt'] = "ja") {
         $inklInt = 1;
     } else {
         $inklInt =  0;
@@ -99,7 +99,7 @@ if (isset($_REQUEST['submit'])) {
 
         <form method="post" action="">
 
-            
+
             <h2>Overskrift: <input type="text" name="navn" placeholder="Rom i kollektiv" required></h2>
 
             <h2>Månedspris: <input type="text" name="pris" placeholder="3999" required></h2>
@@ -145,7 +145,7 @@ if (isset($_REQUEST['submit'])) {
 
             <h2>Bilde opplastning: <input type="bilde" name="bilde" placeholder="Last opp bilde her" required></h2>
 
-            <input class="knapp" type="submit" name="submit" value="Publiser annonse"> 
+            <input class="knapp" type="submit" name="submit" value="Publiser annonse">
         </form>
 
     </div>

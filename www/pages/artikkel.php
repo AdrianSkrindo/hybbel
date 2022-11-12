@@ -23,14 +23,14 @@ include "../assets/inc/standar.include.php";
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
-    <p>Sjekk hybelid sendt gjennem, slett dette til slutt  <?php echo $_GET['hybel_id'] . "."; ?></p>
+    <p>Sjekk hybelid sendt gjennem, slett dette til slutt <?php echo $_GET['hybel_id'] . "."; ?></p>
 
     <?php
 
 
 
     $sql = "SELECT * 
-        FROM hybel WHERE hybel_id='".$_GET['hybel_id']."'";
+        FROM hybel WHERE hybel_id='" . $_GET['hybel_id'] . "'";
 
 
 
@@ -48,32 +48,32 @@ include "../assets/inc/standar.include.php";
     if ($q->rowCount() > 0) {
         foreach ($hybler as $hybel) {
 
-            echo '<box1> <img src="../assets/img/'.$hybel->bilde.'"</box1>';
+            echo '<box1> <img src="../assets/img/' . $hybel->bilde . '"</box1>';
             echo '<div class="tekstbox">';
             echo '<p>' . $hybel->navn . '</p>';
-            echo'</div>';
-            echo'<div class="overview">';
-            echo'<ul class="no-bullets">';
+            echo '</div>';
+            echo '<div class="overview">';
+            echo '<ul class="no-bullets">';
             echo  '<li>Pris: <span>' . $hybel->pris . '</span></li>';
             echo  '<li>Depositum: <span>' . $hybel->depo . '</span></li>';
             echo    '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
             echo    '<li>Ledig fra:<span>' . $hybel->ledigFra . '</span></li>';
             echo  '</ul>';
             echo '</div>';
-    
+
             echo '<div class="overview">';
             echo    '<ul class="no-bullets">';
             echo       '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
 
             //Printer boolean status som ja eller nei
             echo       '<li>Inkl. strøm: <span>';
-            echo       $hybel->strom?'Ja':'Nei' . '</span></li>';
+            echo       $hybel->strom ? 'Ja' : 'Nei' . '</span></li>';
 
-            echo        '<li>Inkl. internett: <span>'; 
-            echo        $hybel->internett?'Ja':'Nei' . '</span></li>';
+            echo        '<li>Inkl. internett: <span>';
+            echo        $hybel->internett ? 'Ja' : 'Nei' . '</span></li>';
 
             echo        '<li>Inkl. tv: <span>';
-            echo        $hybel->tv?'Ja':'Nei' . '</span></li>';
+            echo        $hybel->tv ? 'Ja' : 'Nei' . '</span></li>';
 
             echo        '<li>Kjønnsdiskriminering: <span>' . $hybel->kjonn . '</span></li>';
 
@@ -84,12 +84,11 @@ include "../assets/inc/standar.include.php";
             echo '<button class="button"><a href="">Send melding til utleier</a></button>';
             echo '<button class="button"><a href="">Lei denne leigliheten</a></button>';
             echo '</div>';
-
         }
     } else {
         echo "The query resulted in an empty result set.";
     }
-    
+
     ?>
     <!--  HARD KODET OVERBLIKK OVER HYBELEN, GAMMELT UTKAST
     <div class="flex-container">
