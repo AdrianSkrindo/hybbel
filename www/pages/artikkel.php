@@ -23,14 +23,15 @@ include "../assets/inc/standar.include.php";
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
     <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
-    <p>Du trykket på en artikkel med session id  <?php echo $_SESSION['hybel_id'] . "."; ?></p>
+    <p>Sjekk hybelid sendt gjennem, slett dette til slutt  <?php echo $_GET['hybel_id'] . "."; ?></p>
 
     <?php
 
 
 
     $sql = "SELECT * 
-        FROM hybel WHERE hybel_id='".$_SESSION['hybel_id']."'";
+        FROM hybel WHERE hybel_id='".$_GET['hybel_id']."'";
+
 
 
     $q = $pdo->prepare($sql);

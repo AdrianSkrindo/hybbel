@@ -56,7 +56,8 @@ include "../assets/inc/standar.include.php";
     }
     //$q->debugDumpParams();
 
-    $_SESSION['hybel_id'] = [];
+    $artikkel_id = []; 
+    $_SESSION['hybel_id']= []; 
 
 
     $hybler = $q->fetchAll(PDO::FETCH_OBJ);
@@ -65,13 +66,14 @@ include "../assets/inc/standar.include.php";
 
         foreach ($hybler as $hybel) {
 
-            $_SESSION['hybel_id'][] = $hybel->hybel_id;
+            //$_SESSION['hybel_id'][] = $hybel->hybel_id;
+            $artikkel_id[$hybel->hybel_id] = $hybel->hybel_id;
 
-
-            //echo '<a href="artikkel.php">';
-            echo '<a href="artikkel.php?hybel_id="' . $_SESSION['hybel_id'][$hybel->hybel_id]. '</a>';
+            echo '<a href="artikkel.php?hybel_id=';
+            echo $artikkel_id[$hybel->hybel_id]. '"</a>';
+    
             echo "<card>";
-            echo '<box1> <img src="../assets/img/' . $hybel->bilde . '"</box1>';
+            echo '<box1> <img src="../assets/img/' . $hybel->bilde. '"</box1>';
             echo '<div class="tekstbox">';
             echo "<h2>" . $hybel->navn . "</h2>";
             echo "<p>" . $hybel->adresse . "</p>";
@@ -85,11 +87,17 @@ include "../assets/inc/standar.include.php";
         echo "The query resulted in an empty result set.";
     }
 
-
-
     echo '</div>';
 
+
+    //Test array, sjekk verdien
+    /*
+    $_SESSION['hybel_id'] = $artikkel_id;
+    print_r($artikkel_id);
+    echo "<br>";
     print_r($_SESSION['hybel_id']);
+    */
+
     ?>
     <?php
     include "../assets/inc/footer.php";
