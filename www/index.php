@@ -58,6 +58,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne 
     $_SESSION["passord"] = $row['passord'];
     $_SESSION["fnavn"] = $row['fnavn'];
     $_SESSION["enavn"] =$row['enavn'];
+    $_SESSION["admin"] = $row['admin'];
     
     
   } else echo "";

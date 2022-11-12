@@ -20,6 +20,13 @@ include "../assets/inc/standar.include.php";
   <a href="utleie.php">Annonser din hybel</a>
   <a class="active" href="minSide.php">Min side</a>
   <a class="loggUT" href="../assets/lib/loggUt.php">Logg ut</a>
+  <?php 
+  if($_SESSION['admin']=1){
+    echo '<a href="hjem.php">Admin test</a>';
+  } else {
+    echo " ";
+  }
+  ?>
 </div>
 
 
