@@ -29,7 +29,7 @@ include "../assets/inc/standar.include.php";
   ?>
 </div>
 
-
+    <p>admin session value = <?php echo $_SESSION['admin'];?></p>
     <p> Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn']."."; ?></p>
 
 

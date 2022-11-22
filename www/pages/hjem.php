@@ -26,6 +26,7 @@ include "../assets/inc/standar.include.php";
         <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
     </div>
 
+    <p>admin session value = <?php echo $_SESSION['admin'];?></p>
     <p>Logget inn som <?php echo $_SESSION['fnavn'] . "."; ?></p>
 
     <!--

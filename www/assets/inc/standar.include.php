@@ -15,7 +15,7 @@ try {
     echo 'Error connecting to database: ' . $e->getMessage(); // Never do this in production
 }
 
-if(!isset($_SESSION['login'])){ //if login in session is not set
+if(!isset($_SESSION['login'])){ //Sjekker om brukeren er logget inn. 
     header("Location: ../index.php");
 }
 ?>
