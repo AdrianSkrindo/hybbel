@@ -10,4 +10,6 @@
     } catch (PDOException $e) {
         echo 'Error connecting to database: ' . $e->getMessage(); // Never do this in production
     }
+
+    
 ?>

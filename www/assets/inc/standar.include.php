@@ -14,4 +14,8 @@ try {
 } catch (PDOException $e) {
     echo 'Error connecting to database: ' . $e->getMessage(); // Never do this in production
 }
+
+if(!isset($_SESSION['login'])){ //if login in session is not set
+    header("Location: ../index.php");
+}
 ?>
