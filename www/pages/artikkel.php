@@ -77,12 +77,22 @@ include "../assets/inc/standar.include.php";
 
             echo        '<li>Kjønnsdiskriminering: <span>' . $hybel->kjonn . '</span></li>';
 
+            $status = $hybel->status;
+
+            if ($status <= 0) {
+                echo        '<div class="status">IKKE TILGJENGLIG</div>';
+            } else {
+                echo "";
+            } 
+
             echo    '</ul>';
             echo '</div>';
 
             //Knapper
-            echo '<button class="button"><a href="">Send melding til utleier</a></button>';
-            echo '<button class="button"><a href="">Lei denne leigliheten</a></button>';
+            //echo '<button class="button"><a href="">Send melding til utleier</a></button>';
+            echo '<div class="container">';
+            echo '<a href=""><button class="button"><a>Lei denne leigliheten</a></button></a>';
+            echo '</div>';
             echo '</div>';
         }
     } else {

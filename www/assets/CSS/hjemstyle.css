@@ -108,3 +108,14 @@ a:visited {
   color: white;
 
 }
+
+.overskrift{
+  text-align: center;
+  font-size: xx-large;
+  color: rgb(15, 61, 62);
+  margin-bottom: 50px;
+}
+
+.button {
+  border-color: rgb(15, 61, 62);
+}

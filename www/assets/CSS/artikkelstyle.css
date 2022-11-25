@@ -131,10 +131,8 @@ span{
   
   }
 
-  button {
-    position: relative;
-    margin-left: 30%;
-    margin-right: 30%;
+  .button {
+    
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -147,3 +145,15 @@ span{
     text-decoration: none;
     color: white;
   }
+
+  .status {
+    color: red;
+    font-size: xx-large;
+    text-align: center;
+  }
+
+  .container{
+    text-align: center;
+  }
+
+

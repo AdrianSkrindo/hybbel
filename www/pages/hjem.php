@@ -1,8 +1,5 @@
 <?php
-
 include "../assets/inc/standar.include.php";
-
-
 ?>
 
 <!DOCTYPE html>
