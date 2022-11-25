@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne ikke koble til database.");
+$conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die("Kunne ikke koble til database.");
 ?>
 
 
@@ -48,20 +48,24 @@ $conn = mysqli_connect('localhost', 'root', '', 'hybelprosjekt') or die ("Kunne 
   }
 
 
-  $select = mysqli_query($conn, "SELECT id, brukernavn, passord, fnavn, enavn, b_admin FROM brukere WHERE brukernavn = '$brukernavn' AND passord = '$passord'");
+  $select = mysqli_query($conn, "SELECT id, brukernavn, passord, fnavn, enavn, rolle FROM brukere WHERE brukernavn = '$brukernavn' AND passord = '$passord'");
   $row = mysqli_fetch_array($select);
 
   if (is_array($row)) {
-    
+
     $_SESSION["id"] = $row['id'];
     $_SESSION["brukernavn"] = $row['brukernavn'];
     $_SESSION["passord"] = $row['passord'];
     $_SESSION["fnavn"] = $row['fnavn'];
-    $_SESSION["enavn"] =$row['enavn'];
-    $_SESSION["admin"] = $row['b_admin'];
+    $_SESSION["enavn"] = $row['enavn'];
+    $_SESSION["rolle"] = $row['rolle'];
+    /*if ($row['b_admin'] = "admin") {
+      $_SESSION["admin"] = 1;
+    } else {
+      $_SESSION["admin"] = 0;
+    }*/
+
     $_SESSION["login"] = 1;
-    
-    
   } else echo "";
 
   if (isset($_SESSION["brukernavn"])) {
