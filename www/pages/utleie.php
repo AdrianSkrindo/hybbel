@@ -4,9 +4,9 @@ include "../assets/inc/standar.include.php";
 
 
 $sql = "INSERT INTO hybel 
-        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, kjonn, bilde, status) 
+        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, kjonn, bilde, status, eier) 
         VALUES 
-        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :kjonn, :bilde, :status)";
+        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :kjonn, :bilde, :status, :eier)";
 
 $q = $pdo->prepare($sql);
 
@@ -23,6 +23,7 @@ $q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
 $q->bindParam(':kjonn', $kjonn, PDO::PARAM_STR);
 $q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
 $q->bindParam(':status', $status, PDO::PARAM_BOOL);
+$q->bindParam(':eier', $eier, PDO::PARAM_STR);
 
 if (isset($_REQUEST['submit'])) {
     $navn = $_REQUEST['navn'];
@@ -56,6 +57,7 @@ if (isset($_REQUEST['submit'])) {
     $kjonn = $_REQUEST['kjonn'];
     $bilde = $_REQUEST['bilde'];
     $status = 1;
+    $eier = $_SESSION["brukernavn"];
 
 
     try {
@@ -66,8 +68,10 @@ if (isset($_REQUEST['submit'])) {
     //$q->debugDumpParams();
 
     //Sjekker om noe er satt inn, returnerer UID.
+
     if ($pdo->lastInsertId() > 0) {
-        echo "Data inserted into database, identified by BID " . $pdo->lastInsertId() . ".";
+        //echo "Data inserted into database, identified by BID " . $pdo->lastInsertId() . ".";
+        header("location:hjem.php");
     } else {
         echo "Data were not inserted into database.";
     }
