@@ -63,7 +63,7 @@ try {
             <h2>Fornavn: <input type="text" name="fnavn" value="<?php echo $_SESSION["fnavn"]; ?>"  required><br></h2>
             <h2>Etternavn: <input type="text" name="enavn" value="<?php echo $_SESSION["enavn"]; ?>"  required><br></h2>
             <h2>E-post: <input type="email" name="brukernavn" value="<?php echo $_SESSION["brukernavn"]; ?>"  required><br></h2>
-            <h2>Passord: <input type="text" name="passord" value="<?php echo $_SESSION["passord"]; ?>"  required><br></h2>
+            <h2>Passord: <input type="password" name="passord" value="<?php echo $_SESSION["passord"]; ?>"  required><br></h2>
 
             <input class="button" type="submit" name="endre" value="Endre brukeropplysninger">
         </form>
