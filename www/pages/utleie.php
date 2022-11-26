@@ -22,6 +22,7 @@ $q->bindParam(':inklInt', $inklInt, PDO::PARAM_BOOL);
 $q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
 $q->bindParam(':kjonn', $kjonn, PDO::PARAM_STR);
 $q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
+//$q->bindParam(':bilde', $bildepath, PDO::PARAM_STR);
 $q->bindParam(':status', $status, PDO::PARAM_BOOL);
 $q->bindParam(':eier', $eier, PDO::PARAM_STR);
 
@@ -55,10 +56,61 @@ if (isset($_REQUEST['submit'])) {
     //$inklInt = $_REQUEST['inklInt'];
     $adresse = $_REQUEST['adresse'];
     $kjonn = $_REQUEST['kjonn'];
-    $bilde = $_REQUEST['bilde'];
+
+    if (is_uploaded_file($_FILES['upload-file']['tmp_name'])) {
+        // Henter informasjon om filen som er sendt
+        $file_type = $_FILES['upload-file']['type'];
+        $file_size = $_FILES['upload-file']['size'];
+
+        $acc_file_types = array(
+            "jpeg" => "image/jpeg",
+            "jpg" => "image/jpg",
+            "png" => "image/png"
+        );
+        $max_file_size = 2000000; // i bytes
+        $dir = $_SERVER['DOCUMENT_ROOT'] . "/hybbel/www/assets/img/";
+
+        // Mekker katalog, hvis den ikke allerede finnes
+        if (!file_exists($dir)) {
+            if (!mkdir($dir, 0777, true))
+                die("Cannot create directory..." . $dir);
+        }
+
+        // Sjekker hvilke filtype det er, gir dette til variablene, som brukes i navngenerering
+        $suffix = array_search($_FILES['upload-file']['type'], $acc_file_types);
+
+        // mekker navnet på filen, ved hjelp av ønskelig input + filtype
+        do {
+            $filename  = substr(md5(date('YmdHis')), 0, 5) . '.' . $suffix;
+        } while (file_exists($dir . $filename));
+
+        /* Errors? */
+        if (!in_array($file_type, $acc_file_types)) {
+            $types = implode(", ", array_keys($acc_file_types));
+            $messages['error'][] = "Invalid file type (only <em>" . $types . "</em> are accepted)";
+        }
+        if ($file_size > $max_file_size)
+            $messages['error'][] = "The file size (" . round($file_size / 1048576, 2) . " MB) exceeds max file size (" . round($max_file_size / 1048576, 2) . " MB)"; // Bin. conversion
+
+        // Hvis alt går etter planen
+        if (empty($messages)) {
+            //Bestemmer hvor filen skal plasseres, og laster den opp. 
+            $filepath = $dir . $filename;
+            $uploaded_file = move_uploaded_file($_FILES['upload-file']['tmp_name'], $filepath);
+
+            if (!$uploaded_file)
+                $messages['error'][] = "The file could not be uploaded";
+            else
+                $messages['success'][] = "The file was uploaded and can be found here: <strong>" . $filepath . "</strong>";
+        }
+    } else {
+        $messages['error'][] = "No file is selected";
+    }
+
+    $bilde = $filename;
+    //$bildepath = $_REQUEST['bilde'];
     $status = 1;
     $eier = $_SESSION["brukernavn"];
-
 
     try {
         $q->execute();
@@ -66,7 +118,6 @@ if (isset($_REQUEST['submit'])) {
         echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
     }
     //$q->debugDumpParams();
-
     //Sjekker om noe er satt inn, returnerer UID.
 
     if ($pdo->lastInsertId() > 0) {
@@ -101,7 +152,7 @@ if (isset($_REQUEST['submit'])) {
     <br><br>
     <div class="flex-container">
 
-        <form method="post" action="">
+        <form method="post" action="" enctype="multipart/form-data">
 
 
             <h2>Overskrift: <input type="text" name="navn" placeholder="Rom i kollektiv" required></h2>
@@ -147,7 +198,8 @@ if (isset($_REQUEST['submit'])) {
                 </select>
             </h2>
 
-            <h2>Bilde opplastning: <input type="bilde" name="bilde" placeholder="Last opp bilde her" required></h2>
+            <!--<h2>Bilde opplastning: <input type="bilde" name="bilde" placeholder="Last opp bilde her" required></h2>-->
+            <h2>Bilde opplastning: <input name="upload-file" type="file" required> </h2>
 
             <input class="knapp" type="submit" name="submit" value="Publiser annonse">
         </form>
