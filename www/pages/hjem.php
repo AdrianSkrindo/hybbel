@@ -77,7 +77,7 @@ include "../assets/inc/standar.include.php";
             echo "<h2>" . $hybel->navn . "</h2>";
             echo "<p>" . $hybel->adresse . "</p>";
             echo "<p>" . $hybel->pris . ",-</p>";
-            echo "<p>" . $hybel->hybel_id . "</p>";
+            //echo "<p>" . $hybel->hybel_id . "</p>";
             echo "</div>";
             echo "</card>";
             echo "</a>";

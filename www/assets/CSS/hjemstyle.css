@@ -37,6 +37,7 @@ body {
   flex-wrap: wrap;
   max-width: 60%;
   margin: auto;
+  margin-bottom: 100px;
 
 }
 
@@ -119,3 +120,4 @@ a:visited {
 .button {
   border-color: rgb(15, 61, 62);
 }
+
