@@ -3,9 +3,7 @@
 //Mangler fortsatt optimalisering rundt at brukeren blir logget ut automatisk, sånn man kan se oppdatering med en gang.
 
 include "../assets/inc/standar.include.php";
- echo $_SESSION['id'];
 
- 
 $sql = "UPDATE brukere 
         SET 
         brukernavn = :brukernavn,
@@ -55,15 +53,16 @@ try {
         <a href="hjem.php">Hjem</a>
         <a href="utleie.php">Annonser din hybel</a>
         <a class="active" href="minSide.php">Min side</a>
-        <a class="loggUT" href="../assets/lib/loggUt.php">Logg ut</a>
+        <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
+        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
     </div>
-<br><br>
+    <br><br>
     <div class="flex-container">
         <form method="post" action="">
-            <h2>Fornavn: <input type="text" name="fnavn" value="<?php echo $_SESSION["fnavn"]; ?>"  required><br></h2>
-            <h2>Etternavn: <input type="text" name="enavn" value="<?php echo $_SESSION["enavn"]; ?>"  required><br></h2>
-            <h2>E-post: <input type="email" name="brukernavn" value="<?php echo $_SESSION["brukernavn"]; ?>"  required><br></h2>
-            <h2>Passord: <input type="password" name="passord" value="<?php echo $_SESSION["passord"]; ?>"  required><br></h2>
+            <h2>Fornavn: <input type="text" name="fnavn" value="<?php echo $_SESSION["fnavn"]; ?>" required><br></h2>
+            <h2>Etternavn: <input type="text" name="enavn" value="<?php echo $_SESSION["enavn"]; ?>" required><br></h2>
+            <h2>E-post: <input type="email" name="brukernavn" value="<?php echo $_SESSION["brukernavn"]; ?>" required><br></h2>
+            <h2>Passord: <input type="password" name="passord" value="<?php echo $_SESSION["passord"]; ?>" required><br></h2>
 
             <input class="button" type="submit" name="endre" value="Endre brukeropplysninger">
         </form>

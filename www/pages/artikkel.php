@@ -20,14 +20,13 @@ include "../assets/inc/standar.include.php";
         <a href="hjem.php">Hjem</a>
         <a href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
-        <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
+        <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
+        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
     </div>
-    <p>Du er nå logget inn på brukeren <?php echo $_SESSION['fnavn'] . "."; ?></p>
-    <p>Sjekk hybelid sendt gjennem, slett dette til slutt <?php echo $_GET['hybel_id'] . "."; ?></p>
+
+<p><!--skjult mellomrom--></p>
 
     <?php
-
-
 
     $sql = "SELECT * 
         FROM hybel WHERE hybel_id='" . $_GET['hybel_id'] . "'";
@@ -84,7 +83,7 @@ include "../assets/inc/standar.include.php";
                 echo        '<div class="status">IKKE TILGJENGLIG</div>';
             } else {
                 echo "";
-            } 
+            }
 
             echo    '</ul>';
             echo '</div>';
@@ -98,21 +97,20 @@ include "../assets/inc/standar.include.php";
 
 
             echo '<div class="container">';
-            $eier =$hybel -> eier;
-            if($eier = $_SESSION['brukernavn']){
+            $eier = $hybel->eier;
+            if ($eier = $_SESSION['brukernavn']) {
                 echo "Hei, dette er min hybel";
             } else {
                 echo "hei, dette er ikke min hybel ";
             }
             echo '</div>';
-
         }
     } else {
         echo "The query resulted in an empty result set.";
     }
 
     ?>
-    
+
 
 
     <?php

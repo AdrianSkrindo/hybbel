@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "session startet, for brukeren: ".$_SESSION['brukernavn'];
 
 
 define('DB_HOST', 'localhost');

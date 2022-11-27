@@ -22,7 +22,6 @@ $q->bindParam(':inklInt', $inklInt, PDO::PARAM_BOOL);
 $q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
 $q->bindParam(':kjonn', $kjonn, PDO::PARAM_STR);
 $q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
-//$q->bindParam(':bilde', $bildepath, PDO::PARAM_STR);
 $q->bindParam(':status', $status, PDO::PARAM_BOOL);
 $q->bindParam(':eier', $eier, PDO::PARAM_STR);
 
@@ -107,9 +106,13 @@ if (isset($_REQUEST['submit'])) {
         $messages['error'][] = "No file is selected";
     }
 
+    //Brukes for å sette bildepath i databasen
     $bilde = $filename;
-    //$bildepath = $_REQUEST['bilde'];
+
+    //Publiseres som tilgjengelig
     $status = 1;
+
+    //Henter eier fra innlogget bruker
     $eier = $_SESSION["brukernavn"];
 
     try {
@@ -118,8 +121,9 @@ if (isset($_REQUEST['submit'])) {
         echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
     }
     //$q->debugDumpParams();
-    //Sjekker om noe er satt inn, returnerer UID.
 
+
+    //Sjekker om noe er satt inn, returnerer UID. I dette tilfelle, redirecter til hjem.php
     if ($pdo->lastInsertId() > 0) {
         //echo "Data inserted into database, identified by BID " . $pdo->lastInsertId() . ".";
         header("location:hjem.php");
@@ -147,7 +151,8 @@ if (isset($_REQUEST['submit'])) {
         <a href="hjem.php">Hjem</a>
         <a class="active" href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
-        <a class="loggUt" href="../assets/lib/loggUt.php">Logg ut</a>
+        <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
+        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
     </div>
     <br><br>
     <div class="flex-container">
@@ -198,7 +203,6 @@ if (isset($_REQUEST['submit'])) {
                 </select>
             </h2>
 
-            <!--<h2>Bilde opplastning: <input type="bilde" name="bilde" placeholder="Last opp bilde her" required></h2>-->
             <h2>Bilde opplastning: <input name="upload-file" type="file" required> </h2>
 
             <input class="knapp" type="submit" name="submit" value="Publiser annonse">

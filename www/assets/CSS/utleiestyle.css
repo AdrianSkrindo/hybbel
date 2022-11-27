@@ -1,5 +1,6 @@
 body {
     background-color: rgb(226, 220, 200);
+    margin: 0;
 
 
 }
@@ -120,6 +121,7 @@ span {
 
     position: relative;
     margin-left: 250px;
+    margin-bottom: 30px;
     background-color: rgb(15, 61, 62);
     text-decoration: none;
     color: white;
@@ -129,3 +131,4 @@ span {
 h2 {
     padding-left: 50px;
 }
+

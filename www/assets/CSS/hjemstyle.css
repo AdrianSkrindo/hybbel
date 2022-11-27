@@ -1,7 +1,6 @@
 body {
   background-color: rgb(226, 220, 200);
-
-
+  margin: 0;
 }
 
 .topnav {
@@ -32,6 +31,11 @@ body {
   color: rgb(241, 241, 241);
 }
 
+.brukernavn {
+  
+  float: right;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -52,8 +56,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-
   transition: all .2s ease-in-out;
 }
 
@@ -110,7 +112,7 @@ a:visited {
 
 }
 
-.overskrift{
+.overskrift {
   text-align: center;
   font-size: xx-large;
   color: rgb(15, 61, 62);
@@ -119,5 +121,27 @@ a:visited {
 
 .button {
   border-color: rgb(15, 61, 62);
+}
+
+.sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 60%;
+  margin: auto;
+  margin-bottom: 50px;
+
+}
+
+.sort-container card {
+  background-color: rgb(15, 61, 62);
+  margin: 5px;
+  padding: 5px;
+  width: 350px;
+  height: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all .2s ease-in-out;
 }
 
