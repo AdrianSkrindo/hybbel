@@ -20,7 +20,6 @@ $q->bindParam(':inklTV', $inklTV, PDO::PARAM_BOOL);
 $q->bindParam(':inklStr', $inklStr, PDO::PARAM_BOOL);
 $q->bindParam(':inklInt', $inklInt, PDO::PARAM_BOOL);
 $q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-$q->bindParam(':kjonn', $kjonn, PDO::PARAM_STR);
 $q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
 $q->bindParam(':status', $status, PDO::PARAM_BOOL);
 $q->bindParam(':eier', $eier, PDO::PARAM_STR);
@@ -51,10 +50,7 @@ if (isset($_REQUEST['submit'])) {
         $inklInt =  0;
     }
 
-    //$inklStr = $_REQUEST['inklStr'];
-    //$inklInt = $_REQUEST['inklInt'];
     $adresse = $_REQUEST['adresse'];
-    $kjonn = $_REQUEST['kjonn'];
 
     if (is_uploaded_file($_FILES['upload-file']['tmp_name'])) {
         // Henter informasjon om filen som er sendt
@@ -174,7 +170,7 @@ if (isset($_REQUEST['submit'])) {
                 </select>
             </h2>
 
-            <h2>Ledig fra: <input type="text" name="ledig" placeholder="<?php echo "kan styre med kalender og date datatype om vi ønsker her" ?>" required></h2>
+            <h2>Ledig fra: <input type="date" name="ledig" value="" required></h2>
 
             <h2>Inkl. TV: <select id="tv" name="inklTv" required>
                     <option value="ja">Ja</option>
@@ -196,12 +192,6 @@ if (isset($_REQUEST['submit'])) {
 
             <h2>Adresse: <input type="text" name="adresse" placeholder="Gatenavn og nummer" required></h2>
 
-            <h2>Ønsket kjønn: <select id="kjonn" name="kjonn" required>
-                    <option value="mann">Menn</option>
-                    <option value="kvinne">Kvinner</option>
-                    <option value="blanding">Lett blanding</option>
-                </select>
-            </h2>
 
             <h2>Bilde opplastning: <input name="upload-file" type="file" required> </h2>
 

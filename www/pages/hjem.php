@@ -59,8 +59,8 @@ require_once "../assets/lib/hentArtikkler.php";
 
         echo '<div class="flex-container">';
 
-        $etterPris = new Artikkel;
-        $etterPris->byPris();
+        $sortNyeste = new Artikkel;
+        $sortNyeste->nyeste();
 
         echo '</div>';
 

@@ -24,7 +24,9 @@ include "../assets/inc/standar.include.php";
         <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
     </div>
 
-<p><!--skjult mellomrom--></p>
+    <p>
+        <!--skjult mellomrom-->
+    </p>
 
     <?php
 
@@ -74,7 +76,8 @@ include "../assets/inc/standar.include.php";
             echo        '<li>Inkl. tv: <span>';
             echo        $hybel->tv ? 'Ja' : 'Nei' . '</span></li>';
 
-            echo        '<li>Kjønnsdiskriminering: <span>' . $hybel->kjonn . '</span></li>';
+            $timeStamp = $hybel->opprettet;
+            echo        '<li>Opprettet: <span>' . date('F Y', strtotime($timeStamp)) . '</span></li>';
             echo        '<li>Eier: <span>' . $hybel->eier . '</span></li>';
 
             $status = $hybel->status;
