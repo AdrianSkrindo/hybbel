@@ -1,6 +1,7 @@
 <?php
 
 include "../assets/inc/standar.include.php";
+require_once "../assets/lib/endreStatus.php";
 
 ?>
 <!DOCTYPE html>
@@ -110,7 +111,9 @@ include "../assets/inc/standar.include.php";
                 echo '</div>';
             } else {
                 echo '<div class="container">';
-                echo '<a href=""><button class="button"><a>Endre status </a></button></a>';
+                echo '<form method="post" action="">';
+                echo '<input class="button" type="submit" name="endreStatus" value="Endre status"</input>';
+                echo '</form>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -118,6 +121,11 @@ include "../assets/inc/standar.include.php";
         }
     } else {
         echo "The query resulted in an empty result set.";
+    }
+
+    if(isset($_POST['endreStatus'])){
+            $endreStatus = new Status;
+            $endreStatus->endreStatus();
     }
 
     ?>
