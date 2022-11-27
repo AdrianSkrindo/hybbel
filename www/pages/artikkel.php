@@ -93,20 +93,28 @@ include "../assets/inc/standar.include.php";
 
             //Knapper
             //echo '<button class="button"><a href="">Send melding til utleier</a></button>';
-            echo '<div class="container">';
+            /*echo '<div class="container">';
             echo '<a href=""><button class="button"><a>Lei denne leigliheten / eller kontakt eier muligens </a></button></a>';
             echo '</div>';
-            echo '</div>';
+            echo '</div>';*/
 
 
-            echo '<div class="container">';
+            
+
             $eier = $hybel->eier;
-            if ($eier = $_SESSION['brukernavn']) {
-                echo "Hei, dette er min hybel";
+            $eierSjekk = $_SESSION['brukernavn'];
+            if ($eier != $eierSjekk) {
+                echo '<div class="container">';
+                echo '<a href=""><button class="button"><a>Lei denne leigliheten / eller kontakt eier muligens </a></button></a>';
+                echo '</div>';
+                echo '</div>';
             } else {
-                echo "hei, dette er ikke min hybel ";
+                echo '<div class="container">';
+                echo '<a href=""><button class="button"><a>Endre status </a></button></a>';
+                echo '</div>';
+                echo '</div>';
             }
-            echo '</div>';
+            
         }
     } else {
         echo "The query resulted in an empty result set.";
