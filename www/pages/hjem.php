@@ -26,7 +26,9 @@ require_once "../assets/lib/hentArtikkler.php";
 
     </div>
 
-    <p>Rolle session value = <?php echo $_SESSION['rolle']; ?></p>
+    <?php 
+    //echo $_SESSION['rolle']; 
+    ?>
 
     <form method="post" action="">
 

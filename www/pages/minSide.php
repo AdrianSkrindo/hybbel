@@ -24,7 +24,7 @@ include "../assets/inc/standar.include.php";
 
   </div>
 
-  <p>admin session value = <?php echo $_SESSION['rolle']; ?></p>
+  <?php echo $_SESSION['rolle']; ?>
 
 
   <div class="overskrift">Endre brukeropplysninger:</div>

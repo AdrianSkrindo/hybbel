@@ -64,7 +64,7 @@ try {
             <h2>E-post: <input type="email" name="brukernavn" value="<?php echo $_SESSION["brukernavn"]; ?>" required><br></h2>
             <h2>Passord: <input type="password" name="passord" value="<?php echo $_SESSION["passord"]; ?>" required><br></h2>
 
-            <input class="button" type="submit" name="endre" value="Endre brukeropplysninger">
+            <div class="knappPos"><input class="knapp" type="submit" name="endre" value="Endre brukeropplysninger"></div>
         </form>
     </div>
 

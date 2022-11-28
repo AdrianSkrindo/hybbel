@@ -117,10 +117,13 @@ span {
 
 }
 
+.knappPos {
+    display: flex;
+    justify-content: center;
+}
+
 .knapp {
 
-    position: relative;
-    margin-left: 250px;
     margin-bottom: 30px;
     background-color: rgb(15, 61, 62);
     text-decoration: none;
