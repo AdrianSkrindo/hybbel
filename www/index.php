@@ -1,18 +1,6 @@
 <?php
 
-session_start();
-
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'hybelprosjekt');
-$dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST; // Driver is set here
-
-try {
-  $pdo = new PDO($dsn, DB_USER, DB_PASS);
-} catch (PDOException $e) {
-  echo 'Error connecting to database: ' . $e->getMessage(); // Never do this in production
-}
+include ('assets/inc/noSessionInclude.php');
 
 
 if (isset($_POST['login'])) {
@@ -67,13 +55,13 @@ if (isset($_POST['login'])) {
 <body>
   <div class="login">
     <h1>H Y B B E L . N O</h1>
-    <form method="post" action="" method="post">
+    <form method="post" action="">
       <p><input type="text" name="brukernavn" placeholder="Brukernavn eller e-post"></p>
       <p><input type="password" name="passord" placeholder="Passord"></p>
       <p class="remember_me">
         <label>
-          <input type="checkbox" name="remember_me" id="remember_me">
-          Ikke bruker? Registrer deg her!
+          <a href="pages/registrerBruker.php">
+          Ikke bruker? Registrer deg her!</a>
         </label>
       </p>
       <p class="submit"><input type="submit" name="login" value="Logg inn"></p>
