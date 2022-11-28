@@ -4,9 +4,9 @@ include "../assets/inc/standar.include.php";
 
 
 $sql = "INSERT INTO hybel 
-        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, kjonn, bilde, status, eier) 
+        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, bilde, status, eier) 
         VALUES 
-        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :kjonn, :bilde, :status, :eier)";
+        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :bilde, :status, :eier)";
 
 $q = $pdo->prepare($sql);
 

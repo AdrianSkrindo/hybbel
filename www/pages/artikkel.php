@@ -2,6 +2,7 @@
 
 include "../assets/inc/standar.include.php";
 require_once "../assets/lib/endreStatus.php";
+require_once "../assets/lib/slettArtikkel.php";
 
 ?>
 <!DOCTYPE html>
@@ -100,32 +101,54 @@ require_once "../assets/lib/endreStatus.php";
             echo '</div>';*/
 
 
-            
+
 
             $eier = $hybel->eier;
             $eierSjekk = $_SESSION['brukernavn'];
             if ($eier != $eierSjekk) {
                 echo '<div class="container">';
-                echo '<a href=""><button class="button"><a>Lei denne leigliheten / eller kontakt eier muligens </a></button></a>';
+                echo '<a href=""><button class="button"><a>Kontakt utleier</a></button></a>';
                 echo '</div>';
                 echo '</div>';
             } else {
-                echo '<div class="container">';
-                echo '<form method="post" action="">';
-                echo '<input class="button" type="submit" name="endreStatus" value="Endre status"</input>';
-                echo '</form>';
-                echo '</div>';
-                echo '</div>';
+                if ($status > 0) {
+                    echo '<div class="container">';
+                    echo '<form method="post" action="">';
+                    echo '<input class="button" type="submit" name="endreStatusIkkeTilgjenglig" value="Endre status til ikke tilgjenlig"</input>';
+                    echo '   ';
+                    echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
+                    echo '</form>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    echo '<div class="container">';
+                    echo '<form method="post" action="">';
+                    echo '<input class="button" type="submit" name="endreStatusTilgjengelig" value="Endre status til tilgjengelig"</input>';
+                    echo '   ';
+                    echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
+                    echo '</form>';
+                    echo '</div>';
+                    echo '</div>';
+                }
             }
-            
         }
     } else {
         echo "The query resulted in an empty result set.";
     }
 
-    if(isset($_POST['endreStatus'])){
-            $endreStatus = new Status;
-            $endreStatus->endreStatus();
+    if (isset($_POST['endreStatusTilgjengelig'])) {
+        $endreStatus = new Status;
+        $endreStatus->Tilgjenglig();
+    }
+
+    if (isset($_POST['endreStatusIkkeTilgjenglig'])) {
+        $endreStatus = new Status;
+        $endreStatus->IkkeTilgjenglig();
+    }
+
+    if (isset($_POST['slettAnnonse'])) {
+        $slett = new slettArtikkel;
+        $slett->fjernArtikkel();
     }
 
     ?>

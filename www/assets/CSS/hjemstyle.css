@@ -119,6 +119,8 @@ a:visited {
   margin-bottom: 50px;
 }
 
+
+
 .button {
   border-color: rgb(15, 61, 62);
 }
@@ -145,3 +147,9 @@ a:visited {
   transition: all .2s ease-in-out;
 }
 
+.link {
+  font-size: larger;
+  color: rgb(15, 61, 62);
+  text-decoration: underline;
+  text-align: center;
+}  
