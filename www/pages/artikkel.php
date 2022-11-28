@@ -103,6 +103,7 @@ require_once "../assets/lib/slettArtikkel.php";
 
 
 
+            //Sjekker at brukeren ikke er eier
             $eier = $hybel->eier;
             $eierSjekk = $_SESSION['brukernavn'];
             if ($eier != $eierSjekk) {
@@ -111,6 +112,8 @@ require_once "../assets/lib/slettArtikkel.php";
                 echo '</div>';
                 echo '</div>';
             } else {
+
+                //hvis innlogget bruker eier annonsen, gi brukeren andre alternativer 
                 if ($status > 0) {
                     echo '<div class="container">';
                     echo '<form method="post" action="">';
@@ -136,6 +139,7 @@ require_once "../assets/lib/slettArtikkel.php";
         echo "The query resulted in an empty result set.";
     }
 
+    //Funksjoner, hentet fra slettArtikkel og endreStatus klassen
     if (isset($_POST['endreStatusTilgjengelig'])) {
         $endreStatus = new Status;
         $endreStatus->Tilgjenglig();
