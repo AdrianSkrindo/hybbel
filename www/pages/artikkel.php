@@ -57,30 +57,44 @@ require_once "../assets/lib/slettArtikkel.php";
             echo '</div>';
             echo '<div class="overview">';
             echo '<ul class="no-bullets">';
-            echo  '<li>Pris: <span>' . $hybel->pris . '</span></li>';
-            echo  '<li>Depositum: <span>' . $hybel->depo . '</span></li>';
-            echo    '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
-            echo    '<li>Ledig fra:<span>' . $hybel->ledigFra . '</span></li>';
-            echo  '</ul>';
-            echo '</div>';
 
-            echo '<div class="overview">';
-            echo    '<ul class="no-bullets">';
-            echo       '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
+            //Pris
+            echo  '<li>Pris: <span>' . $hybel->pris . '</span></li>';
+
+            //Depositum
+            echo  '<li>Depositum: <span>' . $hybel->depo . '</span></li>';
+
+            //Adresse
+            echo  '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
+
+            //Tilgjenglig fra
+            echo  '<li>Ledig fra:<span>' . $hybel->ledigFra . '</span></li>';
+
+            //Boligtype
+            echo '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
 
             //Printer boolean status som ja eller nei
-            echo       '<li>Inkl. strøm: <span>';
-            echo       $hybel->strom ? 'Ja' : 'Nei' . '</span></li>';
+            //Strøm
+            echo '<li>Inkl. strøm: <span>';
+            echo $hybel->strom ? 'Ja' : 'Nei' . '</span></li>';
 
-            echo        '<li>Inkl. internett: <span>';
-            echo        $hybel->internett ? 'Ja' : 'Nei' . '</span></li>';
+            //Internett
+            echo '<li>Inkl. internett: <span>';
+            echo $hybel->internett ? 'Ja' : 'Nei' . '</span></li>';
 
-            echo        '<li>Inkl. tv: <span>';
-            echo        $hybel->tv ? 'Ja' : 'Nei' . '</span></li>';
+            //TV
+            echo '<li>Inkl. tv: <span>';
+            echo  $hybel->tv ? 'Ja' : 'Nei' . '</span></li>';
 
+            //Henter timestamp fra db, og gjør om til ønsket format
             $timeStamp = $hybel->opprettet;
-            echo        '<li>Opprettet: <span>' . date('F Y', strtotime($timeStamp)) . '</span></li>';
-            echo        '<li>Eier: <span>' . $hybel->eier . '</span></li>';
+            echo '<li>Opprettet: <span>' . date('F Y', strtotime($timeStamp)) . '</span></li>';
+
+            //Eier
+            echo '<li>Eier: <span>' . $hybel->eier . '</span></li>';
+
+            //Beskrivelse
+            echo '<p>' . $hybel->beskrivelse . '</p>';
 
             $status = $hybel->status;
 
@@ -89,18 +103,8 @@ require_once "../assets/lib/slettArtikkel.php";
             } else {
                 echo "";
             }
-
             echo    '</ul>';
             echo '</div>';
-
-            //Knapper
-            //echo '<button class="button"><a href="">Send melding til utleier</a></button>';
-            /*echo '<div class="container">';
-            echo '<a href=""><button class="button"><a>Lei denne leigliheten / eller kontakt eier muligens </a></button></a>';
-            echo '</div>';
-            echo '</div>';*/
-
-
 
 
             //Sjekker at brukeren ikke er eier
@@ -156,8 +160,6 @@ require_once "../assets/lib/slettArtikkel.php";
     }
 
     ?>
-
-
 
     <?php
     include "../assets/inc/footer.php";
