@@ -53,7 +53,8 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-  <div class="login">
+<div class="vert-center">  
+<div class="login">
     <h1>H Y B B E L . N O</h1>
     <form method="post" action="">
       <p><input type="text" name="brukernavn" placeholder="Brukernavn eller e-post"></p>
@@ -67,6 +68,7 @@ if (isset($_POST['login'])) {
       <p class="submit"><input type="submit" name="login" value="Logg inn"></p>
     </form>
   </div>
+</div>
 
   <?php
   //$pass = 12345;
