@@ -88,7 +88,7 @@ if (isset($_REQUEST['registrer'])) {
         } 
     ?>
 </div>
-
+<div class="vert-center">
     <div class="login">
         <h1>Registrer bruker</h1>
         <form method="post" action="">
@@ -98,6 +98,7 @@ if (isset($_REQUEST['registrer'])) {
             <p><input type="password" name="passord" placeholder="Passord"></p>
             <p class="submit"><input type="submit" name="registrer" value="Registrer bruker"></p>
         </form>
+    </div>
     </div>
 
 </body>

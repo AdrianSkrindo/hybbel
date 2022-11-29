@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+
 body {
-    font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
     color: #756363;
     background: rgb(226, 220, 200);
     margin: 0;
-  
+    font-family: 'Lato', sans-serif;
+  }
+
+  .vert-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
   }
   
   .login {

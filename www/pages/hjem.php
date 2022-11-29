@@ -34,7 +34,8 @@ require_once "../assets/lib/hentArtikkler.php";
 
         <div class="sort-container">
 
-            <card><input class="button" type="submit" name="etterPris" value="Sorter etter pris"></card>
+            <card><input class="button" type="submit" name="etterPrisDyr" value="Sorter pris (Høy -> Lav)"></card>
+            <card><input class="button" type="submit" name="etterPrisBillig" value="Sorter pris (Lav -> Høy)"></card>
             <card><input class="button" type="submit" name="nyeste" value="Sorter etter nylige"></card>
             <card><input class="button" type="submit" name="eldste" value="Sorter etter eldste"></card>
 
@@ -42,21 +43,28 @@ require_once "../assets/lib/hentArtikkler.php";
 
     </form>
 
-
-
+</div>
     <?php
 
     //Sorter etter pris
-    if (isset($_REQUEST['etterPris'])) {
+    if (isset($_REQUEST['etterPrisDyr'])) {
 
         echo '<div class="flex-container">';
 
         $etterPris = new Artikkel;
-        $etterPris->byPris();
+        $etterPris->byPrisLavHoy();
 
         echo '</div>';
 
         //Sorter etter dato
+    } elseif (isset($_REQUEST['etterPrisBillig'])) {
+
+        echo '<div class="flex-container">';
+
+        $sortNyeste = new Artikkel;
+        $sortNyeste->byPrisHoyLav();
+
+        echo '</div>';
     } elseif (isset($_REQUEST['nyeste'])) {
 
         echo '<div class="flex-container">';
@@ -72,7 +80,7 @@ require_once "../assets/lib/hentArtikkler.php";
         echo '<div class="flex-container">';
 
         $etterPris = new Artikkel;
-        $etterPris->byPris();
+        $etterPris->byPrisLavHoy();
 
         echo '</div>';
     } else {
