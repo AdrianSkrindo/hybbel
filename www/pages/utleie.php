@@ -4,9 +4,9 @@ include "../assets/inc/standar.include.php";
 
 
 $sql = "INSERT INTO hybel 
-        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, bilde, status, eier) 
+        (navn, pris, depo, sted, btype, ledigFra, tv, strom, internett, adresse, beskrivelse, bilde, status, eier) 
         VALUES 
-        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :bilde, :status, :eier)";
+        (:navn, :pris, :depo, :sted, :btype, :ledig, :inklTV, :inklStr, :inklInt, :adresse, :beskrivelse, :bilde, :status, :eier)";
 
 $q = $pdo->prepare($sql);
 
@@ -20,6 +20,7 @@ $q->bindParam(':inklTV', $inklTV, PDO::PARAM_BOOL);
 $q->bindParam(':inklStr', $inklStr, PDO::PARAM_BOOL);
 $q->bindParam(':inklInt', $inklInt, PDO::PARAM_BOOL);
 $q->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+$q->bindParam(':beskrivelse', $beskrivelse, PDO::PARAM_STR);
 $q->bindParam(':bilde', $bilde, PDO::PARAM_STR);
 $q->bindParam(':status', $status, PDO::PARAM_BOOL);
 $q->bindParam(':eier', $eier, PDO::PARAM_STR);
@@ -51,6 +52,9 @@ if (isset($_REQUEST['submit'])) {
     }
 
     $adresse = $_REQUEST['adresse'];
+
+    //Henter beskrivelsen
+    $beskrivelse = $_REQUEST['beskrivelse'];
 
     if (is_uploaded_file($_FILES['upload-file']['tmp_name'])) {
         // Henter informasjon om filen som er sendt
@@ -101,6 +105,8 @@ if (isset($_REQUEST['submit'])) {
     } else {
         $messages['error'][] = "No file is selected";
     }
+
+    
 
     //Brukes for å sette bildepath i databasen
     $bilde = $filename;
@@ -191,6 +197,8 @@ if (isset($_REQUEST['submit'])) {
             </h2>
 
             <h2>Adresse: <input type="text" name="adresse" placeholder="Gatenavn og nummer" required></h2>
+
+            <h2>Beskrivelse: <textarea name="beskrivelse" placeholder="Maks 750 tegn" required></textarea>
 
 
             <h2>Bilde opplastning: <input name="upload-file" type="file" required> </h2>

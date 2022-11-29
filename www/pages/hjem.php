@@ -2,7 +2,6 @@
 include "../assets/inc/standar.include.php";
 require_once "../assets/lib/hentArtikkler.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +20,7 @@ require_once "../assets/lib/hentArtikkler.php";
         <a class="active" href="hjem.php">Hjem</a>
         <a href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
+        <a href="innboks.php">Innboks</a>
         <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
         <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
 
