@@ -2,7 +2,6 @@
 
 include ('assets/inc/noSessionInclude.php');
 
-
 if (isset($_POST['login'])) {
 
   $brukernavn = $_POST['brukernavn'];

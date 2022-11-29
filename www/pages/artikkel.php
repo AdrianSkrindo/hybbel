@@ -51,6 +51,7 @@ require_once "../assets/lib/slettArtikkel.php";
     if ($q->rowCount() > 0) {
         foreach ($hybler as $hybel) {
 
+
             echo '<box1> <img src="../assets/img/' . $hybel->bilde . '"</box1>';
             echo '<div class="tekstbox">';
             echo '<p>' . $hybel->navn . '</p>';
@@ -110,9 +111,11 @@ require_once "../assets/lib/slettArtikkel.php";
             //Sjekker at brukeren ikke er eier
             $eier = $hybel->eier;
             $eierSjekk = $_SESSION['brukernavn'];
+            $_SESSION['mottaker'] = $hybel -> eier;
             if ($eier != $eierSjekk) {
                 echo '<div class="container">';
-                echo '<a href=""><button class="button"><a>Kontakt utleier</a></button></a>';
+                echo '<button class="button"><a href="chat.php?mottaker="';
+                echo  $hybel->eier . '">Kontakt utleier</a></button>';
                 echo '</div>';
                 echo '</div>';
             } else {

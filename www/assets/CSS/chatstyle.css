@@ -1,0 +1,123 @@
+body {
+    background-color: rgb(226, 220, 200);
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  form {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .topnav {
+    background-color: rgb(241, 241, 241);
+    overflow: hidden;
+  }
+  
+  
+  .topnav a {
+    float: left;
+    color: rgb(16, 15, 15);
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: rgb(15, 61, 62);
+    color: rgb(241, 241, 241);
+  }
+  
+  
+  .topnav a.active {
+    background-color: rgb(15, 61, 62);
+    color: rgb(241, 241, 241);
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    flex-direction: column;
+    margin-bottom: 70px;
+
+}
+
+/* Chat containers */
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+  }
+  
+  /* Clear floats */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Style images */
+  .container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  /* Style the right image */
+  .container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+  
+  /* Style time text */
+  .time-right {
+    float: right;
+    color: #aaa;
+  }
+  
+  /* Style time text */
+  .time-left {
+    float: left;
+    color: #999;
+  }
+
+  .overskrift {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(15, 61, 62);
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+
+
+  .knappPos {
+    display: flex;
+    justify-content: center;
+}
+
+.knapp {
+
+  margin-bottom: 30px;
+  background-color: rgb(15, 61, 62);
+  text-decoration: none;
+  color: white;
+}
+
