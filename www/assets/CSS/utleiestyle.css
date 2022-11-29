@@ -135,3 +135,10 @@ h2 {
     padding-left: 50px;
 }
 
+.overskrift {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(15, 61, 62);
+    margin-bottom: 20px;
+  }
+

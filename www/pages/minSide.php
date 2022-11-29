@@ -24,7 +24,7 @@ include "../assets/inc/standar.include.php";
 
   </div>
 
-  <?php echo $_SESSION['rolle']; ?>
+  <?//php echo $_SESSION['rolle']; ?>
 
 
   <div class="overskrift">Endre brukeropplysninger:</div>
@@ -83,7 +83,7 @@ include "../assets/inc/standar.include.php";
       echo "</a>";
     }
   } else {
-    echo "The query resulted in an empty result set.";
+    echo "Du har ingen annonser.";
   }
 
   echo '</div>';

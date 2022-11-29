@@ -191,3 +191,12 @@ body {
     color: white;
     text-decoration: none;
   }
+
+  .overskrift {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(15, 61, 62);
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  

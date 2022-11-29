@@ -1,31 +1,16 @@
 <?php
 include('../assets/inc/noSessionInclude.php');
 
-$sql = "INSERT INTO brukere
-        (brukernavn, passord, fnavn, enavn, rolle)
-        VALUES
-        (:brukernavn, :passord, :fnavn, :enavn, :rolle)";
-
-$q = $pdo->prepare($sql);
-
-$q->bindParam(':brukernavn', $brukernavn, PDO::PARAM_STR);
-$q->bindParam(':passord', $passord, PDO::PARAM_STR);
-$q->bindParam(':fnavn', $fnavn, PDO::PARAM_STR);
-$q->bindParam(':enavn', $enavn, PDO::PARAM_STR);
-$q->bindParam(':rolle', $rolle, PDO::PARAM_STR);
+/* Messages */
+$messages = []; //[] equals array()
 
 if (isset($_REQUEST['registrer'])) {
-    /*$emailSjekk = filter_var($_REQUEST['brukernavn'], FILTER_VALIDATE_EMAIL);
-    if($emailSjekk = false){
-        $brukernavn = NULL;
-    } else {
-        $brukernavn =$emailSjekk;
-    }*/
-    $brukernavn = $_REQUEST['brukernavn'];
-    $passord = password_hash($_REQUEST['passord'], PASSWORD_DEFAULT);
-    $fnavn = $_REQUEST['fnavn'];
-    $enavn = $_REQUEST['enavn'];
-    $rolle = "bruker";
+
+    $sql = "SELECT * 
+        FROM brukere 
+        WHERE brukernavn ='" . $_REQUEST['brukernavn'] . "'";
+
+    $q = $pdo->prepare($sql);
 
     try {
         $q->execute();
@@ -33,15 +18,52 @@ if (isset($_REQUEST['registrer'])) {
         echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
     }
 
-    if ($pdo->lastInsertId() > 0) {
-        
-        echo "Data inserted into database, identified by BID " . $pdo->lastInsertId() . ".";
-        header("refresh:5; url=../index.php");
+    $brukere = $q->fetchAll(PDO::FETCH_OBJ);
+    if ($q->rowCount() > 0) {
+        $messages[] = "Dette brukernavnet finnes allerede.";
     } else {
-        echo "Gratulerer med ny bruker, du blir nå sendt til innloggingsiden. ";
+
+        $sql = "INSERT INTO brukere
+            (brukernavn, passord, fnavn, enavn, rolle)
+            VALUES
+            (:brukernavn, :passord, :fnavn, :enavn, :rolle)";
+
+        $q = $pdo->prepare($sql);
+
+        $q->bindParam(':brukernavn', $brukernavn, PDO::PARAM_STR);
+        $q->bindParam(':passord', $passord, PDO::PARAM_STR);
+        $q->bindParam(':fnavn', $fnavn, PDO::PARAM_STR);
+        $q->bindParam(':enavn', $enavn, PDO::PARAM_STR);
+        $q->bindParam(':rolle', $rolle, PDO::PARAM_STR);
+
+
+        /*$emailSjekk = filter_var($_REQUEST['brukernavn'], FILTER_VALIDATE_EMAIL);
+        if($emailSjekk = false){
+        $brukernavn = NULL;
+        } else {
+        $brukernavn =$emailSjekk;
+        }*/
+        $brukernavn = $_REQUEST['brukernavn'];
+        $passord = password_hash($_REQUEST['passord'], PASSWORD_DEFAULT);
+        $fnavn = $_REQUEST['fnavn'];
+        $enavn = $_REQUEST['enavn'];
+        $rolle = "bruker";
+
+        try {
+            $q->execute();
+        } catch (PDOException $e) {
+            echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+        }
+
+        if ($pdo->lastInsertId() > 0) {
+
+            $messages[] = "Gratulerer med ny bruker, du blir nå sendt til innloggingsiden. ";
+            header("refresh:5; url=../index.php");
+        } else {
+            $messages[] = "Noe gikk galt, vennligst kontakt support";
+        }
     }
 }
-
 
 ?>
 
@@ -58,6 +80,14 @@ if (isset($_REQUEST['registrer'])) {
 </head>
 
 <body>
+<div class="overskrift">
+    <?php if(isset($messages)) { 
+        foreach($messages as $message) { 
+            echo $message; 
+            } 
+        } 
+    ?>
+</div>
 
     <div class="login">
         <h1>Registrer bruker</h1>
