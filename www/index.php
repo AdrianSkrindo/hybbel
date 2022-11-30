@@ -56,8 +56,9 @@ if (isset($_POST['login'])) {
 <div class="login">
     <h1>H Y B B E L . N O</h1>
     <form method="post" action="">
-      <p><input type="text" name="brukernavn" placeholder="Brukernavn eller e-post"></p>
+      <p><input type="text" name="brukernavn" placeholder="Brukernavn eller e-post"> </p>
       <p><input type="password" name="passord" placeholder="Passord"></p>
+      <p class="checkbox"><input type="checkbox" name="remember"/> <label> Husk meg </label>
       <p class="remember_me">
         <label>
           <a href="pages/registrerBruker.php">
@@ -69,10 +70,7 @@ if (isset($_POST['login'])) {
   </div>
 </div>
 
-  <?php
-  //$pass = 12345;
-  //echo password_hash($pass, PASSWORD_DEFAULT);
-  ?>
+
 
   <?php
   include "assets/inc/footer.php";

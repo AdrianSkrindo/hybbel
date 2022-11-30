@@ -24,6 +24,7 @@ setlocale(LC_ALL, 'no_NO');
 
     </div>
 
+    <h1>Innboks</h1>
 
     <?php
 
@@ -45,11 +46,14 @@ setlocale(LC_ALL, 'no_NO');
         if ($q->rowCount() > 0) {
             foreach ($meldinger as $melding) {
                 echo '<div class="container">';
-                echo '<p>'.$melding->sender.':</p>';
-                echo '<p>'.$melding->melding.'</p>';
                 $timeStamp = $melding->timestamp;
                 echo '<span class="time-right">'. date('d.M.Y', strtotime($timeStamp)) .'</span>';
+                echo '<br>';
+                echo '<h2>'.$melding->sender.':</h2>';
+                echo '<p><i>'.$melding->melding.'</i></p>';
+                echo '<a href="sendMelding.php"><button> Svar </button></a>';
                 echo '</div>';
+                
             }
         } else {
             echo "The query resulted in an empty result set.";
