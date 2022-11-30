@@ -31,6 +31,7 @@ setlocale(LC_ALL, 'no_NO');
         $sql = "SELECT * 
         FROM chat 
         WHERE mottaker = '{$_SESSION['brukernavn']}'";
+        //legg til sort her etterhver, slik vi får de nyeste meldingene på toppen
 
         
         $q = $pdo->prepare($sql);
