@@ -62,24 +62,24 @@ $messages = [];
 
     ?>
 
-        <div class="flex-container">
+    <div class="flex-container">
 
-            <div class="overskrift"> Send melding til <?php echo $_SESSION['mottaker']; ?></div>
+        <div class="overskrift"> Send melding til <?php echo $_SESSION['mottaker']; ?></div>
 
-            <form method="post" action="">
-                <p>Melding: <input type="text" name="melding" required> </p>
-                <div class="knappPos"><input class="knapp" type="submit" name="submit" value="Send melding"></div>
-            </form>
-        </div>
+        <form method="post" action="">
+            <p>Melding: <input type="text" name="melding" required> </p>
+            <div class="knappPos"><input class="knapp" type="submit" name="submit" value="Send melding"></div>
+        </form>
+    </div>
 
-<p> 
-<?php if(isset($messages)) { 
-        foreach($messages as $message) { 
-            echo $message; 
-            } 
-        } 
-    ?>
-</p>
+    <p>
+        <?php if (isset($messages)) {
+            foreach ($messages as $message) {
+                echo $message;
+            }
+        }
+        ?>
+    </p>
 
 
 </body>

@@ -16,6 +16,10 @@ body {
     transform: translate(-50%, -50%);
 
   }
+
+  label {
+    color: whitesmoke;
+  }
   
   .login {
     position: relative;

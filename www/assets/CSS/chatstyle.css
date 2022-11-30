@@ -17,6 +17,18 @@ body {
     overflow: hidden;
   }
   
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  button {
+    float:right;
+  }
   
   .topnav a {
     float: left;
@@ -89,7 +101,7 @@ body {
   
   /* Style time text */
   .time-right {
-    float: right;
+    float: left;
     color: #aaa;
   }
   
