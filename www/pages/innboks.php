@@ -30,10 +30,10 @@ setlocale(LC_ALL, 'no_NO');
 
         $sql = "SELECT * 
         FROM chat 
-        WHERE mottaker = '{$_SESSION['brukernavn']}'";
-        //legg til sort her etterhver, slik vi får de nyeste meldingene på toppen
-
+        WHERE mottaker = '{$_SESSION['brukernavn']}'
+        ORDER BY timestamp DESC";
         
+
         $q = $pdo->prepare($sql);
 
         try {
@@ -52,9 +52,8 @@ setlocale(LC_ALL, 'no_NO');
                 echo '<br>';
                 echo '<h2>'.$melding->sender.':</h2>';
                 echo '<p><i>'.$melding->melding.'</i></p>';
-                echo '<a href="sendMelding.php"><button> Svar </button></a>';
+                echo '<a href="sendMelding.php?sender="><button> Svar </button></a>';
                 echo '</div>';
-                
             }
         } else {
             echo "The query resulted in an empty result set.";

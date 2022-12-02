@@ -56,7 +56,7 @@ $messages = [];
         if ($pdo->lastInsertId() > 0) {
             $messages[] = "Melding sendt!";
         } else {
-            $messages[] = "Data were not inserted into database.";
+            $messages[] = "Meldingen ble ikke sendt.";
         }
     }
 
