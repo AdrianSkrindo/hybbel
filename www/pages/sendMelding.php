@@ -27,8 +27,59 @@ setlocale(LC_ALL, 'no_NO');
     <h1>Innboks</h1>
 
     <?php
-        
+
+    if (isset($_REQUEST['submit'])) {
+
+        $sql = "INSERT INTO chat
+        (sender, mottaker, melding) 
+        VALUES 
+        (:sender, :mottaker, :melding)";
+
+        $q = $pdo->prepare($sql);
+
+        $q->bindParam(':sender', $sender, PDO::PARAM_STR);
+        $q->bindParam(':mottaker', $mottaker, PDO::PARAM_STR);
+        $q->bindParam(':melding', $melding, PDO::PARAM_STR);
+
+
+        $sender = $_SESSION['brukernavn'];
+        $mottaker = $_SESSION['mottaker'];
+        $melding = $_REQUEST['melding'];
+
+
+        try {
+            $q->execute();
+        } catch (PDOException $e) {
+            echo "Error querying database: " . $e->getMessage() . "<br>";
+        }
+
+        if ($pdo->lastInsertId() > 0) {
+            $messages[] = "Melding sendt!";
+        } else {
+            $messages[] = "Meldingen ble ikke sendt.";
+        }
+    }
+
     ?>
+
+<div class="flex-container">
+
+<div class="overskrift"> Send melding til <?php echo $_SESSION['mottaker']; ?></div>
+
+<form method="post" action="">
+    <p>Melding: <input type="text" name="melding" required> </p>
+    <div class="knappPos"><input class="knapp" type="submit" name="submit" value="Send melding"></div>
+</form>
+</div>
+
+<p>
+<?php if (isset($messages)) {
+    foreach ($messages as $message) {
+        echo $message;
+    }
+}
+?>
+</p>
 
     </div>
     
