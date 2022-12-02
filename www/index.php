@@ -58,8 +58,8 @@ if (isset($_POST['login'])) {
     <form method="post" action="">
       <p><input type="text" name="brukernavn" placeholder="Brukernavn eller e-post"> </p>
       <p><input type="password" name="passord" placeholder="Passord"></p>
-      <p class="checkbox"><input type="checkbox" name="remember"/> <label> Husk meg </label>
-      <p class="remember_me">
+      <!-- <p class="checkbox"><input type="checkbox" name="remember"/> <label> Husk meg </label>
+      <p class="remember_me"> -->
         <label>
           <a href="pages/registrerBruker.php">
           Ikke bruker? Registrer deg her!</a>
