@@ -28,6 +28,7 @@ setlocale(LC_ALL, 'no_NO');
 
     <?php
 
+
     if (isset($_REQUEST['submit'])) {
 
         $sql = "INSERT INTO chat
@@ -43,7 +44,7 @@ setlocale(LC_ALL, 'no_NO');
 
 
         $sender = $_SESSION['brukernavn'];
-        $mottaker = $_SESSION['mottaker'];
+        $mottaker = $_GET['sender'];
         $melding = $_REQUEST['melding'];
 
 
@@ -64,7 +65,7 @@ setlocale(LC_ALL, 'no_NO');
 
 <div class="flex-container">
 
-<div class="overskrift"> Send melding til <?php echo $_SESSION['mottaker']; ?></div>
+<div class="overskrift"> Send melding til <?php echo $_GET['sender']; ?></div>
 
 <form method="post" action="">
     <p>Melding: <input type="text" name="melding" required> </p>

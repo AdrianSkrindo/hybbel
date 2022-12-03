@@ -52,7 +52,7 @@ setlocale(LC_ALL, 'no_NO');
                 echo '<br>';
                 echo '<h2>'.$melding->sender.':</h2>';
                 echo '<p><i>'.$melding->melding.'</i></p>';
-                echo '<a href="sendMelding.php?sender="><button> Svar </button></a>';
+                echo '<a href="sendMelding.php?sender='.$melding->sender.'"><button> Svar </button></a>';
                 echo '</div>';
             }
         } else {
