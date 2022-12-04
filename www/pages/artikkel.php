@@ -60,10 +60,10 @@ require_once "../assets/lib/slettArtikkel.php";
             echo '<ul class="no-bullets">';
 
             //Pris
-            echo  '<li>Pris: <span>' . $hybel->pris . '</span></li>';
+            echo  '<li>Pris: <span>' . $hybel->pris . ',- kr</span></li>';
 
             //Depositum
-            echo  '<li>Depositum: <span>' . $hybel->depo . '</span></li>';
+            echo  '<li>Depositum: <span>' . $hybel->depo . ',- kr</span></li>';
 
             //Adresse
             echo  '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
