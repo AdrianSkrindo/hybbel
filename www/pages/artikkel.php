@@ -69,7 +69,9 @@ require_once "../assets/lib/slettArtikkel.php";
             echo  '<li>Adresse: <span>' . $hybel->adresse . '</span></li>';
 
             //Tilgjenglig fra
-            echo  '<li>Ledig fra:<span>' . $hybel->ledigFra . '</span></li>';
+            $timeStamp = $hybel->ledigFra;
+            echo  '<li>Ledig fra:<span>' . date('d.M.Y', strtotime($timeStamp)) . '</span></li>';
+            
 
             //Boligtype
             echo '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
