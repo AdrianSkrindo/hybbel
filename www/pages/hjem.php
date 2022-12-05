@@ -1,7 +1,7 @@
 <?php
-include "../assets/inc/standar.include.php";
-require_once "../assets/lib/hentArtikkler.php";
-header("Cache-Control: no cache");
+    include "../assets/inc/standar.include.php";
+    require "../assets/lib/hentArtikkler.php";
+    header("Cache-Control: no cache");
 ?>
 <!DOCTYPE html>
 <html lang="en">
