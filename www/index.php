@@ -40,7 +40,7 @@ if (isset($_POST['login'])) {
               alert('Feil brukernavn eller passord')
             </script>
             <script>
-              window.location = 'index.php'
+            window.location = 'index.php'
             </script>
           ";
       }

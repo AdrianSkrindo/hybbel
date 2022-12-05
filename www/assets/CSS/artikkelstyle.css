@@ -140,9 +140,38 @@ span{
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgb(15, 61, 62);
+    background-color: rgb(112, 112, 112);
     text-decoration: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .button-confirm {
     
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(15, 143, 255);
+    text-decoration: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    border-color: rgb(15, 143, 255);
+    justify-content: center;
+  }
+
+  .button-decline {
+    
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(237, 95, 0);
+    text-decoration: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    border-color: rgb(237, 95, 0);;
   }
 
   button a{

@@ -128,27 +128,27 @@ require_once "../assets/lib/slettArtikkel.php";
                     echo '<div class="container">';
                     echo '<form method="post" action="">';
                     //Endre status
-                    echo '<input class="button" type="submit" name="endreStatusIkkeTilgjenglig" value="Endre status til ikke tilgjenlig"</input>';
+                    echo '<input class="button-decline" type="submit" name="endreStatusIkkeTilgjenglig" value="Endre status til ikke tilgjenlig"</input>';
                     echo '   ';
                     //Slett annonse
-                    echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
+                    echo '<input class="button-decline" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
                     echo '</form>';
                     echo '</div>';
                     //Endre annonse
-                    echo '<div class=""><button class="button"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button></div>';
+                    echo '<div class="center-button"><button class="button-confirm"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button></div>';
                     echo '</div>';
                 } else {
                     echo '<div class="container">';
                     //Endre status
                     echo '<form method="post" action="">';
-                    echo '<input class="button" type="submit" name="endreStatusTilgjengelig" value="Endre status til tilgjengelig"</input>';
+                    echo '<input class="button-confirm" type="submit" name="endreStatusTilgjengelig" value="Endre status til tilgjengelig"</input>';
                     echo '   ';
                     //Slett annonse
-                    echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
+                    echo '<input class="button-decline" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
                     echo '</form>';
                     echo '</div>';
                     //Endre annonse
-                    echo '<div class=""><button class="button"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button></div>';
+                    echo '<button class="button-confirm"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button>';
                     echo '</div>';
                 }
             }
