@@ -55,7 +55,7 @@ setlocale(LC_ALL, 'no_NO');
                 echo '</div>';
             }
         } else {
-            echo "The query resulted in an empty result set.";
+            echo "Innboksen er tom.";
         }
     
 ?>
