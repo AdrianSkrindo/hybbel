@@ -37,16 +37,10 @@ if (isset($_REQUEST['registrer'])) {
         $q->bindParam(':rolle', $rolle, PDO::PARAM_STR);
 
 
-        /*$emailSjekk = filter_var($_REQUEST['brukernavn'], FILTER_VALIDATE_EMAIL);
-        if($emailSjekk = false){
-        $brukernavn = NULL;
-        } else {
-        $brukernavn =$emailSjekk;
-        }*/
-        $brukernavn = $_REQUEST['brukernavn'];
+        $brukernavn = filter_var($_REQUEST['brukernavn'], FILTER_SANITIZE_EMAIL);
         $passord = password_hash($_REQUEST['passord'], PASSWORD_DEFAULT);
-        $fnavn = $_REQUEST['fnavn'];
-        $enavn = $_REQUEST['enavn'];
+        $fnavn = strip_tags($_REQUEST['fnavn']);
+        $enavn = strip_tags($_REQUEST['enavn']);
         $rolle = "bruker";
 
         try {
