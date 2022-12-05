@@ -26,9 +26,6 @@
         <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['fnavn']; ?></a></div>
     </div>
 
-    <?php 
-    //echo $_SESSION['rolle']; 
-    ?>
 
     <form method="post" action="">
 

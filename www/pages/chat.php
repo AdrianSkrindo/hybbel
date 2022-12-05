@@ -51,7 +51,7 @@ $messages = [];
         try {
             $q->execute();
         } catch (PDOException $e) {
-            echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+            echo "Error querying database.";
         }
 
         if ($pdo->lastInsertId() > 0) {

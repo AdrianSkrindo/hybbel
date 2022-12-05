@@ -39,9 +39,8 @@ $messages = []; //[] equals array()
     try {
         $q->execute();
     } catch (PDOException $e) {
-        echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+        echo "Error querying database.";
     }
-    //$q->debugDumpParams();
 
     $hybler = $q->fetchAll(PDO::FETCH_OBJ);
     if ($q->rowCount() > 0) {
