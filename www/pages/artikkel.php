@@ -18,7 +18,7 @@ require_once "../assets/lib/slettArtikkel.php";
 
 <body>
 
-<div class="topnav">
+    <div class="topnav">
         <a href="hjem.php">Hjem</a>
         <a href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
@@ -72,7 +72,7 @@ require_once "../assets/lib/slettArtikkel.php";
             //Tilgjenglig fra
             $timeStamp = $hybel->ledigFra;
             echo  '<li>Ledig fra:<span>' . date('d.M.Y', strtotime($timeStamp)) . '</span></li>';
-            
+
 
             //Boligtype
             echo '<li>Bolig type: <span>' . $hybel->btype . '</span></li>';
@@ -114,7 +114,7 @@ require_once "../assets/lib/slettArtikkel.php";
             //Sjekker at brukeren ikke er eier
             $eier = $hybel->eier;
             $eierSjekk = $_SESSION['brukernavn'];
-            $_SESSION['mottaker'] = $hybel -> eier;
+            $_SESSION['mottaker'] = $hybel->eier;
             if ($eier != $eierSjekk) {
                 echo '<div class="container">';
                 echo '<button class="button"><a href="chat.php?mottaker="';
