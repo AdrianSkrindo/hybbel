@@ -1,7 +1,7 @@
 <?php
-include "../assets/inc/standar.include.php";
-require_once "../assets/lib/hentArtikkler.php";
-header("Cache-Control: no cache");
+    include "../assets/inc/standar.include.php";
+    require "../assets/lib/hentArtikkler.php";
+    header("Cache-Control: no cache");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +22,8 @@ header("Cache-Control: no cache");
         <a href="utleie.php">Annonser din hybel</a>
         <a href="minSide.php">Min side</a>
         <a href="innboks.php">Innboks</a>
-        <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
-        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
-
+        <div style="position:absolute;right:125px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
+        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['fnavn']; ?></a></div>
     </div>
 
     <?php 

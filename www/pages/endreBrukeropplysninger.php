@@ -48,13 +48,13 @@ if (isset($_REQUEST['endre'])) {
 
 <body>
 
-    <div class="topnav">
+<div class="topnav">
         <a href="hjem.php">Hjem</a>
         <a href="utleie.php">Annonser din hybel</a>
-        <a class="active" href="minSide.php">Min side</a>
+        <a href="minSide.php">Min side</a>
         <a href="innboks.php">Innboks</a>
-        <div style="position:absolute;right:185px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
-        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['brukernavn']; ?></a></div>
+        <div style="position:absolute;right:125px;"><a href="../assets/lib/loggUt.php">Logg ut</a></div>
+        <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['fnavn']; ?></a></div>
     </div>
     <br><br>
 
