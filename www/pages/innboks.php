@@ -38,7 +38,7 @@ setlocale(LC_ALL, 'no_NO');
         try {
             $q->execute();
         } catch (PDOException $e) {
-            echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+            echo "Error querying database.";
         }
 
         $meldinger = $q->fetchAll(PDO::FETCH_OBJ);

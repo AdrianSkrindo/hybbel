@@ -120,9 +120,9 @@ if (isset($_REQUEST['submit'])) {
     try {
         $q->execute();
     } catch (PDOException $e) {
-        echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+        echo "Error querying database.";
     }
-    //$q->debugDumpParams();
+    
 
 
     //Sjekker om noe er satt inn, returnerer UID. I dette tilfelle, redirecter til hjem.php

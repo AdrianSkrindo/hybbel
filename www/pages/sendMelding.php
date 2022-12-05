@@ -50,7 +50,7 @@ setlocale(LC_ALL, 'no_NO');
         try {
             $q->execute();
         } catch (PDOException $e) {
-            echo "Error querying database: " . $e->getMessage() . "<br>";
+            echo "Error querying database.";
         }
 
         if ($pdo->lastInsertId() > 0) {

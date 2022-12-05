@@ -24,8 +24,6 @@ include "../assets/inc/standar.include.php";
         <div style="position:absolute;right:0px;"><a href="minSide.php"><?php echo $_SESSION['fnavn']; ?></a></div>
     </div>
 
-  <?//php echo $_SESSION['rolle']; ?>
-
 
   <div class="overskrift">Endre brukeropplysninger:</div>
 
@@ -51,13 +49,12 @@ include "../assets/inc/standar.include.php";
   try {
     $q->execute();
   } catch (PDOException $e) {
-    echo "Error querying database: " . $e->getMessage() . "<br>"; // Never do this in production
+    echo "Error querying database.";
   }
-  //$q->debugDumpParams();
+  
 
   //lager array, overskrives i loopen, om vi lagrer rett i "session"
   $artikkel_id = [];
-  //$_SESSION['hybel_id']= []; 
 
 
   $hybler = $q->fetchAll(PDO::FETCH_OBJ);
@@ -88,12 +85,6 @@ include "../assets/inc/standar.include.php";
 
   echo '</div>';
   ?>
-
-
-
-
-
-
 
   <?php
   include "../assets/inc/footer.php";
