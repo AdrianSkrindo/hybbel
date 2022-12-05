@@ -1,5 +1,5 @@
 <?php
-include "../assets/inc/standar.include.php";
+include "../../private/standar.include.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

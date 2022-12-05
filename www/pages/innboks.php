@@ -1,5 +1,5 @@
 <?php
-include "../assets/inc/standar.include.php";
+include "../../private/standar.include.php";
 setlocale(LC_ALL, 'no_NO');
 ?>
 

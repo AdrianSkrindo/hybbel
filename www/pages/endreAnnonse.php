@@ -1,5 +1,5 @@
 <?php
-include "../assets/inc/standar.include.php";
+include "../../private/standar.include.php";
 
 $messages = []; //[] equals array()
 ?>

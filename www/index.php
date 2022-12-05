@@ -1,6 +1,6 @@
 <?php
 
-include('assets/inc/noSessionInclude.php');
+include('../private/noSessionInclude.php');
 
 if (isset($_POST['login'])) {
 

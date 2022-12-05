@@ -1,5 +1,5 @@
 <?php
-    include "../assets/inc/standar.include.php";
+    include "../../private/standar.include.php";
     include_once "../assets/lib/hentArtikkler.php";
     header("Cache-Control: no cache");
 ?>

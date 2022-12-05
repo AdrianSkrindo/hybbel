@@ -1,6 +1,6 @@
 <?php
 
-include "../assets/inc/standar.include.php";
+include "../../private/standar.include.php";
 require_once "../assets/lib/endreStatus.php";
 require_once "../assets/lib/slettArtikkel.php";
 

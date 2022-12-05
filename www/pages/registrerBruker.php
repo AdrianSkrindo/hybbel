@@ -1,5 +1,5 @@
 <?php
-include('../assets/inc/noSessionInclude.php');
+include('../../private/noSessionInclude.php');
 
 /* Messages */
 $messages = []; //[] equals array()
