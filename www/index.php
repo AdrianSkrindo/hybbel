@@ -1,41 +1,50 @@
 <?php
 
-require_once 'assets/inc/noSessionInclude.php';
+include ('assets/inc/noSessionInclude.php');
 
-if(ISSET($_POST['login'])){
-  //hvis brukernavn og passord begge IKKE er blank
+if (isset($_POST['login'])) {
+
   if($_POST['brukernavn'] != "" || $_POST['passord'] != ""){
-    
-    //henter bruker fra databasen basert på inntastet brukernavn
-    $sql = "SELECT * FROM `brukere` WHERE `brukernavn`=? ";
 
-    $query = $pdo->prepare($sql);
-    //kjører queryen med dataen fra $_POST['username']
-    $query->execute([$_POST['brukernavn']]);
-    //henter bruker basert 
-    $bruker = $query->fetch();
-    
-    //hvis $bruker er satt og passordet blir godkjent og unhashet riktig, kjør koden
-    if ($bruker && password_verify($_POST['passord'], $bruker['passord']))
-      {
-        //oppretter session for en user med IDen som hører til den brukeren
-        //og sender den til "forsiden"
-        $_SESSION['bruker'] = $bruker['id'];
-        header("location:pages/hjem.php");
+  $brukernavn = $_POST['brukernavn'];
+  $sql = "SELECT * FROM brukere WHERE brukernavn = '$brukernavn'";
+  $q = $pdo->prepare($sql);
+
+
+  try {
+    $q->execute();
+  } catch (PDOException $e) {
+    echo $e->getMessage() . "<br>";
+  }
+
+  $bruker = $q->fetch(PDO::FETCH_OBJ);
+
+  if (isset($bruker->passord)) {
+    if (password_verify($_REQUEST['passord'], $bruker->passord)) {
+
+      $_SESSION["id"] = $bruker->id;
+      $_SESSION["brukernavn"] = $bruker->brukernavn;
+      $_SESSION["passord"] = $bruker->passord;
+      $_SESSION["fnavn"] = $bruker->fnavn;
+      $_SESSION["enavn"] = $bruker->enavn;
+      $_SESSION["rolle"] = $bruker->rolle;
+      $_SESSION["login"] = 1;
+
+      header("Location:pages/hjem.php");
+      exit();
+    }
       } else {
-        //hvis ikke sender den en built-in dialogboks som varsler feil passord eller brukernavn
         echo
-        "
-          <script>
-            alert('Feil brukernavn eller passord')
-          </script>
-          <script>
-            window.location = 'index.php'
-          </script>
-        ";
+          "
+            <script>
+              alert('Feil brukernavn eller passord')
+            </script>
+            <script>
+              window.location = 'index.php'
+            </script>
+          ";
       }
   } else {
-    //dialogboks for når feltene er tomme.
     echo
     "
       <script>
