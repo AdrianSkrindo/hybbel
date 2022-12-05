@@ -1,6 +1,6 @@
 <?php
     include "../assets/inc/standar.include.php";
-    require "../assets/lib/hentArtikkler.php";
+    include_once "../assets/lib/hentArtikkler.php";
     header("Cache-Control: no cache");
 ?>
 <!DOCTYPE html>

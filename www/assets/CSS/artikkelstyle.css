@@ -119,7 +119,6 @@ span{
     
 }
 
-
   .footer {
     padding: 3px;
     background-color: rgb(15, 61, 62);
@@ -145,6 +144,11 @@ span{
     border-radius: 15px;
     color: white;
     font-weight: 600;
+  }
+
+  .center-button {
+    display: flex;
+    justify-content: center;
   }
 
   .button-confirm {

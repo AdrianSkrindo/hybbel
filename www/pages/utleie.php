@@ -204,7 +204,7 @@ if (isset($_REQUEST['submit'])) {
 
             <h2>Bilde opplastning: <input name="upload-file" type="file" required> </h2>
 
-            <div class="knappPos"><input class="knapp" type="submit" name="submit" value="Publiser annonse"></div>
+            <div class="knappPos"><input class="button-confirm" type="submit" name="submit" value="Publiser annonse"></div>
         </form>
 
     </div>

@@ -116,7 +116,7 @@ require_once "../assets/lib/slettArtikkel.php";
             $_SESSION['mottaker'] = $hybel->eier;
             if ($eier != $eierSjekk) {
                 echo '<div class="container">';
-                echo '<button class="button"><a href="chat.php?mottaker="';
+                echo '<button class="button-confirm"><a href="chat.php?mottaker="';
                 echo  $hybel->eier . '">Kontakt utleier</a></button>';
                 echo '</div>';
                 echo '</div>';

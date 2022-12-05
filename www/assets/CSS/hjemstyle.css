@@ -6,6 +6,9 @@ body {
    font-family: 'Lato', sans-serif;
 
 }
+h2 {
+  text-decoration: none;
+}
 
 .topnav {
   background-color: rgb(241, 241, 241);
@@ -44,6 +47,7 @@ body {
   margin: auto;
   margin-bottom: 100px;
   justify-content:center;
+  text-decoration: none;
 }
 
 
@@ -68,6 +72,7 @@ body {
   height: auto;
   margin: 1px;
   padding: 1px;
+  text-decoration: none;
 }
 
 img {
@@ -78,7 +83,7 @@ img {
 
 .tekstbox {
   margin-left: 10px;
-
+  text-decoration: none;
 }
 
 p {
@@ -88,6 +93,7 @@ p {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 a:visited {
@@ -159,3 +165,7 @@ a:visited {
   text-decoration: underline;
   text-align: center;
 }  
+
+.card{
+  text-decoration: none;
+}

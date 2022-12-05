@@ -50,6 +50,20 @@ body {
 
 }
 
+.button-confirm {
+    
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(15, 143, 255);
+    text-decoration: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    border-color: rgb(15, 143, 255);
+    justify-content: center;
+  }
+
 .info {
     display: flex;
     flex-direction: column;
