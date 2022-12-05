@@ -13,7 +13,7 @@ require_once "../assets/lib/slettArtikkel.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/CSS/artikkelstyle.css">
-    <title>artikkel</title>
+    <title>Artikkel</title>
 </head>
 
 <body>
@@ -127,20 +127,28 @@ require_once "../assets/lib/slettArtikkel.php";
                 if ($status > 0) {
                     echo '<div class="container">';
                     echo '<form method="post" action="">';
+                    //Endre status
                     echo '<input class="button" type="submit" name="endreStatusIkkeTilgjenglig" value="Endre status til ikke tilgjenlig"</input>';
                     echo '   ';
+                    //Slett annonse
                     echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
                     echo '</form>';
                     echo '</div>';
+                    //Endre annonse
+                    echo '<div class=""><button class="button"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button></div>';
                     echo '</div>';
                 } else {
                     echo '<div class="container">';
+                    //Endre status
                     echo '<form method="post" action="">';
                     echo '<input class="button" type="submit" name="endreStatusTilgjengelig" value="Endre status til tilgjengelig"</input>';
                     echo '   ';
+                    //Slett annonse
                     echo '<input class="button" type="submit" name="slettAnnonse" value="Slett annonsen for godt"</input>';
                     echo '</form>';
                     echo '</div>';
+                    //Endre annonse
+                    echo '<div class=""><button class="button"><a href="endreAnnonse.php?hybel_id='.$_GET['hybel_id'].'">Endre annonse</a></button></div>';
                     echo '</div>';
                 }
             }

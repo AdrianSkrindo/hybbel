@@ -1,7 +1,5 @@
 <?php
 
-//Mangler fortsatt optimalisering rundt at brukeren blir logget ut automatisk, sånn man kan se oppdatering med en gang.
-
 include "../assets/inc/standar.include.php";
 
 if (isset($_REQUEST['endre'])) {
